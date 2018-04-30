@@ -327,7 +327,7 @@ public enum RacialBody {
 	FOX_MORPH(
 			Util.newHashMapOfValues(
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(22f, 28f)),
-					new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(0f, 0f)),
+					new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(2f, 5f)),
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_CORRUPTION, new AttributeRange(20f, 30f))),
 			AntennaType.NONE,
 			ArmType.FOX_MORPH, 1,

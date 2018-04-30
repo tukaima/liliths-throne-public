@@ -350,7 +350,8 @@ public class NPCOffspring extends NPC {
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_EQUINE_CIDER)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_SWAMP_WATER)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_BUBBLE_MILK)
-						|| item.getItemType().equals(ItemType.STR_INGREDIENT_WOLF_WHISKEY)) {
+						|| item.getItemType().equals(ItemType.STR_INGREDIENT_WOLF_WHISKEY)
+						|| item.getItemType().equals(ItemType.STR_INGREDIENT_FOX_WINE)) {
 					
 						if(Sex.isDom(Main.game.getPlayer())) {
 							return "<p>"

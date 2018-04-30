@@ -482,7 +482,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case WOLF_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_WOLF_WHISKEY)));
 				case FOX_MORPH:
-					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_WOLF_WHISKEY)));
+					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_FOX_WINE)));
 				case HUMAN:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.INT_INGREDIENT_VANILLA_WATER)));
 				case SLIME:
@@ -582,7 +582,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case WOLF_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_WOLF_MORPH)));
 				case FOX_MORPH:
-					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_WOLF_MORPH)));
+					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_FOX_MORPH)));
 				case HUMAN:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_HUMAN)));
 				case SLIME:
@@ -929,7 +929,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					reaction = "Time to turn you into a "+raceName+"!";
 					break;
 				case FOX_MORPH:
-					itemType = ItemType.RACE_INGREDIENT_WOLF_MORPH;
+					itemType = ItemType.RACE_INGREDIENT_FOX_MORPH;
 					if (getPreferredBody().getGender().isFeminine()) {
 						reaction = "Time to turn you into my little vixen!";
 					} else {

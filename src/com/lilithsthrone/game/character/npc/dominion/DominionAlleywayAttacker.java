@@ -608,6 +608,7 @@ public class DominionAlleywayAttacker extends NPC {
 						|| item.getItemType().equals(ItemType.INT_INGREDIENT_FELINE_FANCY)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_EQUINE_CIDER)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_WOLF_WHISKEY)
+						|| item.getItemType().equals(ItemType.STR_INGREDIENT_FOX_WINE)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_SWAMP_WATER)
 						|| item.getItemType().equals(ItemType.STR_INGREDIENT_BUBBLE_MILK)) {
 					

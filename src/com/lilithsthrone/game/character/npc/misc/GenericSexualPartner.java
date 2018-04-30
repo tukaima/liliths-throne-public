@@ -81,6 +81,7 @@ public class GenericSexualPartner extends NPC {
 					// No spawn chance:
 					case ANGEL:
 					case DEMON:
+					case FOX_DEMON:
 					case IMP:
 					case IMP_ALPHA:
 					case ELEMENTAL_AIR:
@@ -112,6 +113,7 @@ public class GenericSexualPartner extends NPC {
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RABBIT:
 						addToSubspeciesMap(1, gender, s, availableRaces);
 						break;
@@ -163,6 +165,12 @@ public class GenericSexualPartner extends NPC {
 						break;
 					case WOLF_MORPH:
 						addToSubspeciesMap(25, gender, s, availableRaces);
+						break;
+					case FOX_MORPH:
+						addToSubspeciesMap(10, gender, s, availableRaces);
+						break;
+					case FOX_MORPH_FENNEC:
+						addToSubspeciesMap(5, gender, s, availableRaces);
 						break;
 					case RABBIT_MORPH:
 						addToSubspeciesMap(5, gender, s, availableRaces);

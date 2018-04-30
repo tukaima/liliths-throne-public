@@ -1531,6 +1531,9 @@ public class Body implements Serializable, XMLSaving {
 			case LYCAN:
 				sb.append(", anthropomorphic wolf-like face, complete with a lupine muzzle.");
 				break;
+			case FOX_MORPH:
+				sb.append(", anthropomorphic fox-like face, complete with a vulpine muzzle.");
+				break;
 			case CAT_MORPH:
 				sb.append(", anthropomorphic cat-like face, with a cute little feline muzzle.");
 				break;
@@ -1604,6 +1607,9 @@ public class Body implements Serializable, XMLSaving {
 					sb.append(", fur-like hair");
 					break;
 				case LYCAN:
+					sb.append(", fur-like hair");
+					break;
+				case FOX_MORPH:
 					sb.append(", fur-like hair");
 					break;
 				case CAT_MORPH:
@@ -1831,6 +1837,9 @@ public class Body implements Serializable, XMLSaving {
 			case LYCAN:
 				sb.append(" wolf-like eyes");
 				break;
+			case FOX_MORPH:
+				sb.append(" fox-like eyes");
+				break;
 			case SQUIRREL_MORPH:
 				sb.append(" squirrel-like eyes");
 				break;
@@ -1915,31 +1924,43 @@ public class Body implements Serializable, XMLSaving {
 				break;
 			case DOG_MORPH:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of floppy, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of floppy, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of floppy, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
 			case DOG_MORPH_POINTED:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of pointed, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of pointed, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of pointed, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
 			case DOG_MORPH_FOLDED:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of folded, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of folded, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of folded, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
 			case LYCAN:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, wolf-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, wolf-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, wolf-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
+			case FOX_MORPH:
+				if (owner.isPlayer())
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+				else
+					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
+				break;
+			case FOX_MORPH_BIG:
+				if (owner.isPlayer())
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are nearly as large as the rest of your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+				else
+					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are nearly as large as the rest of [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
+				break;	
 			case CAT_MORPH:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
@@ -1959,41 +1980,41 @@ public class Body implements Serializable, XMLSaving {
 				break;
 			case SQUIRREL_MORPH:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, squirrel-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, squirrel-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, squirrel-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
 			case RAT_MORPH:
 				if (owner.isPlayer()) {
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, rat-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, rat-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				} else {
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, rat-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				}
 				break;
 			case RABBIT_MORPH:
 				if (owner.isPlayer()) {
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, rabbit-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, rabbit-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				} else {
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, rabbit-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				}
 				break;
 			case RABBIT_MORPH_FLOPPY:
 				if (owner.isPlayer()) {
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"floppy, rabbit-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"floppy, rabbit-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				} else {
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"floppy, rabbit-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				}
 				break;
 			case BAT_MORPH:
 				if (owner.isPlayer()) {
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"triangular, bat-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"triangular, bat-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				} else {
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"triangular, bat-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				}
 				break;
 			case HORSE_MORPH:
 				if (owner.isPlayer())
-					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, horse-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, horse-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, horse-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
@@ -2716,6 +2737,14 @@ public class Body implements Serializable, XMLSaving {
 					sb.append("[npc.She] has "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [npc.armFullDescription(true)]."
 							+ " [npc.Her] hands are formed into anthropomorphic, wolf-like hands, complete with sharp claws and tough leathery pads.");
 				break;
+			case FOX_MORPH:
+				if (owner.isPlayer())
+					sb.append("You have "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [pc.armFullDescription(true)]."
+								+ " Your hands are formed into anthropomorphic, wolf-like hands, complete with sharp claws and tough leathery pads.");
+				else
+					sb.append("[npc.She] has "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [npc.armFullDescription(true)]."
+							+ " [npc.Her] hands are formed into anthropomorphic, wolf-like hands, complete with sharp claws and tough leathery pads.");
+				break;
 			case CAT_MORPH:
 				if (owner.isPlayer())
 					sb.append("You have "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [pc.armFullDescription(true)]."
@@ -2972,6 +3001,14 @@ public class Body implements Serializable, XMLSaving {
 							+ " and [npc.her] feet are formed into anthropomorphic dog-like paws, complete with little blunt claws and leathery pads.");
 				break;
 			case LYCAN:
+				if (owner.isPlayer())
+					sb.append("Your legs are "+getCoveredInDescriptor(owner)+" [pc.legFullDescription(true)],"
+							+ " and your feet are formed into anthropomorphic wolf-like paws, complete with sharp claws and tough leathery pads.");
+				else
+					sb.append("[npc.Her] legs are "+getCoveredInDescriptor(owner)+" [npc.legFullDescription(true)],"
+							+ " and [npc.her] feet are formed into anthropomorphic wolf-like paws, complete with sharp claws and tough leathery pads.");
+				break;
+			case FOX_MORPH:
 				if (owner.isPlayer())
 					sb.append("Your legs are "+getCoveredInDescriptor(owner)+" [pc.legFullDescription(true)],"
 							+ " and your feet are formed into anthropomorphic wolf-like paws, complete with sharp claws and tough leathery pads.");
@@ -3267,6 +3304,13 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("a furry, [npc.tailColour(true)] wolf-like tail.");
 						}
 						break;
+					case FOX_MORPH:
+						if (owner.isPlayer()) {
+							sb.append("a furry, [pc.tailColour(true)] fox-like tail.");
+						} else {
+							sb.append("a furry, [npc.tailColour(true)] fox-like tail.");
+						}
+						break;
 					case SQUIRREL_MORPH:
 						if (owner.isPlayer()) {
 							sb.append("a fluffy, [pc.tailColour(true)] squirrel-like tail, which you can control well enough to grant you significantly improved balance.");
@@ -3378,6 +3422,13 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("furry, [pc.tailColour(true)] wolf-like tails.");
 						} else {
 							sb.append("furry, [npc.tailColour(true)] wolf-like tails.");
+						}
+						break;
+					case FOX_MORPH:
+						if (owner.isPlayer()) {
+							sb.append("furry, [pc.tailColour(true)] fox-like tails.");
+						} else {
+							sb.append("furry, [npc.tailColour(true)] fox-like tails.");
 						}
 						break;
 					case SQUIRREL_MORPH:
@@ -3692,6 +3743,14 @@ public class Body implements Serializable, XMLSaving {
 					descriptionSB.append("You have a lupine, [pc.anusFullDescription(true)]");
 				} else {
 					descriptionSB.append("[npc.She] has a lupine, [npc.anusFullDescription(true)]");
+				}
+				break;
+				
+			case FOX_MORPH:
+				if (isPlayer) {
+					descriptionSB.append("You have a vulpine, [pc.anusFullDescription(true)]");
+				} else {
+					descriptionSB.append("[npc.She] has a vulpine, [npc.anusFullDescription(true)]");
 				}
 				break;
 				
@@ -4479,6 +4538,9 @@ public class Body implements Serializable, XMLSaving {
 			case LUPINE:
 				descriptionSB.append(" lupine cock");
 				break;
+			case FOX_MORPH:
+				descriptionSB.append(" vulpine cock");
+				break;
 			case FELINE:
 				descriptionSB.append(" feline cock");
 				break;
@@ -5098,6 +5160,13 @@ public class Body implements Serializable, XMLSaving {
 					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" lupine pussy, with [pc.labiaSize], [pc.pussyPrimaryColour(true)] labia and [pc.pussySecondaryColour(true)] inner-walls.");
 				} else {
 					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" lupine pussy, with [npc.labiaSize], [npc.pussyPrimaryColour(true)] labia and [npc.pussySecondaryColour(true)] inner-walls.");
+				}
+				break;
+			case FOX_MORPH:
+				if (isPlayer) {
+					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" vulpine pussy, with [pc.labiaSize], [pc.pussyPrimaryColour(true)] labia and [pc.pussySecondaryColour(true)] inner-walls.");
+				} else {
+					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" vulpine pussy, with [npc.labiaSize], [npc.pussyPrimaryColour(true)] labia and [npc.pussySecondaryColour(true)] inner-walls.");
 				}
 				break;
 			case ALLIGATOR_MORPH:
@@ -6099,6 +6168,9 @@ public class Body implements Serializable, XMLSaving {
 				case WOLF_MORPH:
 					coverings.put(BodyCoveringType.BODY_HAIR_LYCAN_FUR, new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, coverings.get(BodyCoveringType.HAIR_LYCAN_FUR).getPrimaryColour()));
 					break;
+				case FOX_MORPH:
+					coverings.put(BodyCoveringType.BODY_HAIR_FOX_FUR, new Covering(BodyCoveringType.BODY_HAIR_FOX_FUR, coverings.get(BodyCoveringType.HAIR_FOX_FUR).getPrimaryColour()));
+					break;
 				case ELEMENTAL_AIR:
 					break;
 				case ELEMENTAL_ARCANE:
@@ -6195,6 +6267,9 @@ public class Body implements Serializable, XMLSaving {
 						break;
 					case WOLF_MORPH:
 						coverings.put(BodyCoveringType.BODY_HAIR_LYCAN_FUR, new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, coverings.get(BodyCoveringType.HAIR_LYCAN_FUR).getPrimaryColour()));
+						break;
+					case FOX_MORPH:
+						coverings.put(BodyCoveringType.BODY_HAIR_FOX_FUR, new Covering(BodyCoveringType.BODY_HAIR_FOX_FUR, coverings.get(BodyCoveringType.HAIR_FOX_FUR).getPrimaryColour()));
 						break;
 					case ELEMENTAL_AIR:
 						break;

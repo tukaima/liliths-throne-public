@@ -89,6 +89,9 @@ public class SlimeCavernAttacker extends NPC {
 					case REINDEER_MORPH:
 					case SQUIRREL_MORPH:
 					case WOLF_MORPH:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:	
+					case FOX_DEMON:
 					case RABBIT_MORPH:
 					case RABBIT_MORPH_LOP:
 					case BAT_MORPH:
@@ -121,6 +124,7 @@ public class SlimeCavernAttacker extends NPC {
 					case SLIME_REINDEER:
 					case SLIME_SQUIRREL:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RAT:
 					case SLIME_BAT:
 					case SLIME_RABBIT:

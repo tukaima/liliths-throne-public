@@ -75,6 +75,15 @@ public enum FluidType implements BodyPartTypeInterface {
 					new ListValue<>(FluidModifier.SLIMY)),
 			Race.WOLF_MORPH),
 	
+	CUM_FOX_MORPH(FluidTypeBase.CUM,
+			BodyCoveringType.CUM,
+			FluidFlavour.CUM,
+			Util.newArrayListOfValues(new ListValue<>("vulpine")),
+			Util.newArrayListOfValues(
+					new ListValue<>(FluidModifier.STICKY),
+					new ListValue<>(FluidModifier.SLIMY)),
+			Race.FOX_MORPH),
+	
 	CUM_CAT_MORPH(FluidTypeBase.CUM,
 			BodyCoveringType.CUM,
 			FluidFlavour.CUM,
@@ -218,6 +227,14 @@ public enum FluidType implements BodyPartTypeInterface {
 					new ListValue<>(FluidModifier.SLIMY)),
 			Race.WOLF_MORPH),
 	
+	GIRL_CUM_FOX_MORPH(FluidTypeBase.GIRLCUM,
+			BodyCoveringType.GIRL_CUM,
+			FluidFlavour.GIRL_CUM,
+			Util.newArrayListOfValues(new ListValue<>("vulpine")),
+			Util.newArrayListOfValues(
+					new ListValue<>(FluidModifier.SLIMY)),
+			Race.FOX_MORPH),
+	
 	GIRL_CUM_CAT_MORPH(FluidTypeBase.GIRLCUM,
 			BodyCoveringType.GIRL_CUM,
 			FluidFlavour.GIRL_CUM,
@@ -348,6 +365,13 @@ public enum FluidType implements BodyPartTypeInterface {
 			Util.newArrayListOfValues(new ListValue<>("lupine")),
 			Util.newArrayListOfValues(),
 			Race.WOLF_MORPH),
+	
+	MILK_FOX_MORPH(FluidTypeBase.MILK,
+			BodyCoveringType.MILK,
+			FluidFlavour.MILK,
+			Util.newArrayListOfValues(new ListValue<>("vulpine")),
+			Util.newArrayListOfValues(),
+			Race.FOX_MORPH),
 	
 	MILK_CAT_MORPH(FluidTypeBase.MILK,
 			BodyCoveringType.MILK,

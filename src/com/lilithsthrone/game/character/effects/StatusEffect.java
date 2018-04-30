@@ -1717,7 +1717,7 @@ public enum StatusEffect {
 		}
 	},
 
-	// CANINE:
+	// CANID:
 	DOG_MORPH(1000,
 			"dog-morph",
 			null,
@@ -1770,6 +1770,75 @@ public enum StatusEffect {
 			return target.getRace() == Race.WOLF_MORPH
 					&& !target.isRaceConcealed()
 					&& target.getRaceStage() == RaceStage.GREATER;
+		}
+
+		@Override
+		public String getSVGString(GameCharacter owner) {
+			return owner.getSubspecies().getSVGString(owner);
+		}
+	},
+	
+	FOX_MORPH(1000,
+			"fox-morph",
+			null,
+			Colour.RACE_FOX_MORPH,
+			true,
+			Util.newHashMapOfValues(
+					new Value<Attribute, Float>(Attribute.MAJOR_PHYSIQUE, 5f),
+					new Value<Attribute, Float>(Attribute.CRITICAL_CHANCE, 2f)),
+			null) {
+
+		@Override
+		public String getDescription(GameCharacter target) {
+			if (target.isPlayer())
+				return "You're fairly agile for somebody of your size, and your senses sharp.";
+			else
+				return UtilText.parse(target, target.getName("The")
+						+ " is fairly agile for somebody of [npc.his] size, and [npc.his] senses sharp.");
+		}
+
+		@Override
+		public boolean isConditionsMet(GameCharacter target) {
+			return target.getRace() == Race.FOX_MORPH
+					&& !target.isRaceConcealed()
+					&& target.getRaceStage() == RaceStage.GREATER;
+		}
+
+		@Override
+		public String getSVGString(GameCharacter owner) {
+			return owner.getSubspecies().getSVGString(owner);
+		}
+	},
+	
+	FOX_DEMON(1000,
+			"youko",
+			null,
+			Colour.RACE_DEMON,
+			true,
+			Util.newHashMapOfValues(
+					new Value<Attribute, Float>(Attribute.MAJOR_CORRUPTION, 25f),
+					new Value<Attribute, Float>(Attribute.MAJOR_PHYSIQUE, 7f),
+					new Value<Attribute, Float>(Attribute.MAJOR_ARCANE, 7f),
+					new Value<Attribute, Float>(Attribute.CRITICAL_CHANCE, 5f),
+					new Value<Attribute, Float>(Attribute.DAMAGE_LUST, 10f),
+					new Value<Attribute, Float>(Attribute.DAMAGE_SPELLS, 75f)),
+			null) {
+
+		@Override
+		public String getDescription(GameCharacter target) {
+			if (target.isPlayer())
+				return "You're a fox-morph, but your essence carries a distinctly demonic taint.";
+			else
+				return UtilText.parse(target, target.getName("The")
+						+ " is a fox-morph, but [npc.his] essence carries a distinctly demonic taint.");
+		}
+
+		@Override
+		public boolean isConditionsMet(GameCharacter target) {
+//			return target.getRace() == Race.FOX_MORPH
+//					&& !target.isRaceConcealed()
+//					&& target.getRaceStage() == RaceStage.GREATER;
+			return false;
 		}
 
 		@Override
@@ -6371,6 +6440,30 @@ public enum StatusEffect {
 				return "After absorbing a specially-enchanted arcane essence, you find that you're able to accurately predict how wolf-morphs will behave.";
 			} else {
 				return UtilText.parse(target, "After absorbing a specially-enchanted arcane essence, [npc.name] is able to accurately predict how wolf-morphs will behave.");
+			}
+		}
+		
+	},
+	
+	COMBAT_BONUS_FOX_MORPH(
+			80,
+			"fox-morph intuition",
+			"combatBonusWolfMorph",
+			Colour.RACE_FOX_MORPH,
+			true,
+			Util.newHashMapOfValues(
+					new Value<Attribute, Float>(Attribute.MAJOR_PHYSIQUE, 2f),
+					new Value<Attribute, Float>(Attribute.DAMAGE_FOX_MORPH, 25f),
+					new Value<Attribute, Float>(Attribute.RESISTANCE_FOX_MORPH, 25f)),
+			null) {		@Override
+		public String getDescription(GameCharacter target) {
+			if(target == null) {
+				return "";
+			}
+			if (target.isPlayer()) {
+				return "After absorbing a specially-enchanted arcane essence, you find that you're able to accurately predict how fox-morphs will behave.";
+			} else {
+				return UtilText.parse(target, "After absorbing a specially-enchanted arcane essence, [npc.name] is able to accurately predict how fox-morphs will behave.");
 			}
 		}
 		

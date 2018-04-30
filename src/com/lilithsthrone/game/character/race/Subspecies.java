@@ -294,14 +294,78 @@ public enum Subspecies {
 		}
 	},
 	
-	//FOX_MORPH(Race.FOX_MORPH.getName(), Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.FIVE_ABUNDANT,
-	//		"A typical bipedal "+Race.FOX_MORPH.getName()),
-	// Kitsune have a separate racialbody than normal foxes but for subspecies preference purposes they should probably be considered the same as FOX_MORPH.
-	// Just refer to the preferences for FOX_MORPH when building RacialSelectors instead of the preferences for KITSUNE.
+	FOX_MORPH("statusEffects/raceFoxMorph",
+			"fox-morph",
+			"fox-morphs",
+			"fox-boy",
+			"fox-girl",
+			"fox-boys",
+			"fox-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A typical bipedal fox-morph.",
+			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			// TODO Auto-generated method stub
+			
+		}
+	},
+	
+	FOX_MORPH_FENNEC("statusEffects/raceFoxMorph",
+			"fennec-morph",
+			"fennec-morphs",
+			"fennec-boy",
+			"fennec-girl",
+			"fennec-boys",
+			"fennec-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A bipedal fox-morph, with dirty blonde or beach-blonde fur and very large ears.",
+			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
+			double rand = Math.random();
+			if(rand<0.5f) {
+				fennecColour = Colour.COVERING_DIRTY_BLONDE;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HUMAN, new Covering(BodyCoveringType.HUMAN, CoveringPattern.NONE, Colour.SKIN_OLIVE, false, Colour.SKIN_OLIVE, false));
+			body.updateCoverings(true, true, true, true);
+			if(body.getEar().getType()==EarType.FOX_MORPH) {
+				body.getEar().setType(null, EarType.FOX_MORPH_BIG);
+			}
+			
+		}
+	},
+	
+	FOX_DEMON("statusEffects/raceFoxMorph",
+			"youko",
+			"youkos",
+			"youko-boy",
+			"youko-girl",
+			"youko-boys",
+			"youko-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_DEMON,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A bipedal fox-morph who possesses demonic essence.",
+			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			// TODO Auto-generated method stub
+			
+		}
+	},
+	
 	//FOX_TAILED("Pipefox", Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.TWO_LOW,
-	//		"A "+Race.FOX_MORPH.getName()+" with a serpentine lower body, devoid of legs"),
+	//		"A fox-morph with a serpentine lower body, devoid of legs"),
 	//FOX_TAUR("Yegan", Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.TWO_LOW,
-	//		"A "+Race.FOX_MORPH.getName()+" with a bestial lower body that walks on four legs"),
+	//		"A fox-morph with a bestial lower body that walks on four legs"),
 
 	// FELINES:
 	CAT_MORPH("statusEffects/raceCatMorph",
@@ -600,6 +664,26 @@ public enum Subspecies {
 		@Override
 		public void applySpeciesChanges(Body body) {
 //			body = CharacterUtils.generateBody(body.getGender(), Subspecies.WOLF_MORPH, RaceStage.PARTIAL);
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	SLIME_FOX("statusEffects/raceSlime",
+			"fox-slime",
+			"fox-slimes",
+			"fox-slime-boy",
+			"fox-slime-girl",
+			"fox-slime-boys",
+			"fox-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a fox-morph.",
+			Util.newArrayListOfValues(
+					new ListValue<>(WorldType.SUBMISSION),
+					new ListValue<>(WorldType.BAT_CAVERNS))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+//			body = CharacterUtils.generateBody(body.getGender(), Subspecies.FOX_MORPH, RaceStage.PARTIAL);
 			body.setBodyMaterial(BodyMaterial.SLIME);
 		}
 	},
@@ -1187,6 +1271,8 @@ public enum Subspecies {
 				return Subspecies.SQUIRREL_MORPH;
 			case WOLF_MORPH:
 				return Subspecies.WOLF_MORPH;
+			case FOX_MORPH:
+				return Subspecies.WOLF_MORPH;
 			case ELEMENTAL_AIR:
 				return Subspecies.ELEMENTAL_AIR;
 			case ELEMENTAL_ARCANE:
@@ -1299,6 +1385,17 @@ public enum Subspecies {
 				case WOLF_MORPH:
 					subspecies = Subspecies.WOLF_MORPH;
 					break;
+				case FOX_MORPH:
+					subspecies = Subspecies.FOX_MORPH;
+					
+					if((body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_DIRTY_BLONDE
+							|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_BLEACH_BLONDE)
+							&& (body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_DIRTY_BLONDE
+									|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_BLEACH_BLONDE)
+							&& body.getCoverings().get(BodyCoveringType.FOX_FUR).getPattern() == CoveringPattern.NONE) {
+							subspecies = Subspecies.FOX_MORPH_FENNEC;
+						}
+					break;
 				case SLIME:
 					subspecies = Subspecies.SLIME;
 					switch(body.getRaceFromPartWeighting()) {
@@ -1341,6 +1438,8 @@ public enum Subspecies {
 								subspecies = Subspecies.SLIME_DOG;
 							}
 							break;
+						case FOX_MORPH:
+							subspecies = Subspecies.SLIME_FOX;
 						case HARPY:
 							subspecies = Subspecies.SLIME_HARPY;
 							if(body.getCoverings().get(BodyCoveringType.SLIME).getPrimaryColour()==Colour.SLIME_BLACK) {

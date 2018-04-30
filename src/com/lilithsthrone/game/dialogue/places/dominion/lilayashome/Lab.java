@@ -3076,6 +3076,9 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_DEMON:
 						litterSB.append(" mischievous");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3114,6 +3117,7 @@ public class Lab {
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RABBIT:
 						litterSB.append(" bubbly");
 						break;
@@ -3162,6 +3166,9 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_DEMON:
 						litterSB.append(" mischievous");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3200,6 +3207,7 @@ public class Lab {
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RABBIT:
 						litterSB.append(" bubbly");
 						break;
@@ -3248,6 +3256,9 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_DEMON:
 						litterSB.append(" cheeky");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3286,6 +3297,7 @@ public class Lab {
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RABBIT:
 						litterSB.append(" bubbly");
 						break;
@@ -3334,6 +3346,9 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_DEMON:
 						litterSB.append(" cheeky");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3372,6 +3387,7 @@ public class Lab {
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RABBIT:
 						litterSB.append(" bubbly");
 						break;

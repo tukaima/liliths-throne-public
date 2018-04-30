@@ -481,6 +481,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.FIT_INGREDIENT_EGG_NOG)));
 				case WOLF_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_WOLF_WHISKEY)));
+				case FOX_MORPH:
+					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_WOLF_WHISKEY)));
 				case HUMAN:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.INT_INGREDIENT_VANILLA_WATER)));
 				case SLIME:
@@ -529,6 +531,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.BOOK_REINDEER_MORPH)));
 				case WOLF_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.BOOK_WOLF_MORPH)));
+				case FOX_MORPH:
+					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.BOOK_FOX_MORPH)));
 				case HUMAN:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.BOOK_HUMAN)));
 				case SLIME:
@@ -576,6 +580,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case REINDEER_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_REINDEER_MORPH)));
 				case WOLF_MORPH:
+					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_WOLF_MORPH)));
+				case FOX_MORPH:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_WOLF_MORPH)));
 				case HUMAN:
 					return Util.newArrayListOfValues(new ListValue<>(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_HUMAN)));
@@ -921,6 +927,14 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case WOLF_MORPH:
 					itemType = ItemType.RACE_INGREDIENT_WOLF_MORPH;
 					reaction = "Time to turn you into a "+raceName+"!";
+					break;
+				case FOX_MORPH:
+					itemType = ItemType.RACE_INGREDIENT_WOLF_MORPH;
+					if (getPreferredBody().getGender().isFeminine()) {
+						reaction = "Time to turn you into my little vixen!";
+					} else {
+						reaction = "Time to turn you into my very own fox!";
+					}
 					break;
 				case ALLIGATOR_MORPH:
 					itemType = ItemType.RACE_INGREDIENT_ALLIGATOR_MORPH;

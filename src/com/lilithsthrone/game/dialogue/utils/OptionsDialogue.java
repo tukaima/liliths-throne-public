@@ -1336,6 +1336,7 @@ public class OptionsDialogue {
 					case SLIME_REINDEER:
 					case SLIME_SQUIRREL:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_BAT:
 					case SLIME_RAT:
 					case SLIME_RABBIT:
@@ -1350,6 +1351,9 @@ public class OptionsDialogue {
 					case DOG_MORPH:
 					case DOG_MORPH_DOBERMANN:
 					case DOG_MORPH_BORDER_COLLIE:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_DEMON:
 					case BAT_MORPH:
 					case RAT_MORPH:
 					case RABBIT_MORPH:

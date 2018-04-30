@@ -93,6 +93,7 @@ public class SlaveInStocks extends NPC {
 					// No spawn chance:
 					case ANGEL:
 					case DEMON:
+					case FOX_DEMON:
 					case HARPY:
 					case HARPY_RAVEN:
 					case HUMAN:
@@ -114,6 +115,7 @@ public class SlaveInStocks extends NPC {
 					case SLIME_REINDEER:
 					case SLIME_SQUIRREL:
 					case SLIME_WOLF:
+					case SLIME_FOX:
 					case SLIME_RAT:
 					case SLIME_BAT:
 					case SLIME_RABBIT:
@@ -166,6 +168,12 @@ public class SlaveInStocks extends NPC {
 						break;
 					case WOLF_MORPH:
 						addToSubspeciesMap(20, gender, s, availableRaces);
+						break;
+					case FOX_MORPH:
+						addToSubspeciesMap(10, gender, s, availableRaces);
+						break;
+					case FOX_MORPH_FENNEC:
+						addToSubspeciesMap(3, gender, s, availableRaces);
 						break;
 					case RABBIT_MORPH:
 						addToSubspeciesMap(3, gender, s, availableRaces);

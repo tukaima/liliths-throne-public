@@ -161,7 +161,9 @@ public enum BodyCoveringType {
 					new ListValue<CoveringModifier>(CoveringModifier.FLUFFY),
 					new ListValue<CoveringModifier>(CoveringModifier.SMOOTH)),
 			null,
-			null,
+			Util.newArrayListOfValues(
+					new ListValue<CoveringPattern>(CoveringPattern.NONE),
+					new ListValue<CoveringPattern>(CoveringPattern.MARKED)),
 			CoveringPattern.allHairCoveringPatterns,
 			Colour.naturalFurColours,
 			Colour.dyeFurColours,

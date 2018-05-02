@@ -167,7 +167,6 @@ public enum ArmType implements BodyPartTypeInterface {
 			case COW_MORPH:
 				return "bovine";
 			case SQUIRREL_MORPH:
-			case FOX_MORPH:
 				return "furry";
 			case ALLIGATOR_MORPH:
 				return "alligator";
@@ -181,6 +180,8 @@ public enum ArmType implements BodyPartTypeInterface {
 				return "human";
 			case LYCAN:
 				return "lupine";
+			case FOX_MORPH:
+				return "vulpine";
 			case BAT_MORPH:
 				return "bat";
 			case RAT_MORPH:

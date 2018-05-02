@@ -308,8 +308,62 @@ public enum Subspecies {
 			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
 		@Override
 		public void applySpeciesChanges(Body body) {
-			// TODO Auto-generated method stub
+			//We use this to get semi-sane natural coloration patterns.
+			Colour c1 = body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPrimaryColour();
+			Colour c2 = Colour.COVERING_WHITE;
+			CoveringPattern pat = CoveringPattern.MARKED;
+			double rand = Math.random();
 			
+			switch (c1) {
+				case COVERING_BROWN:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BROWN;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_TAN;
+					}
+					break;
+				case COVERING_BROWN_DARK:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BROWN_DARK;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_BROWN;
+					}
+					break;
+				case COVERING_BLONDE:
+				case COVERING_GINGER:
+					if(rand<0.025f) {
+						c2 = Colour.COVERING_BLACK;
+					} else if(rand<0.05f) {
+						c2 = Colour.COVERING_BROWN;
+					} else if(rand<0.5f) {
+						c2 = Colour.COVERING_GREY;
+					}
+					break;
+				case COVERING_SILVER:
+				case COVERING_GREY:
+					if(rand<0.5f) {
+						c2 = c1;
+						pat = CoveringPattern.NONE;
+					}
+					break;
+				case COVERING_BLACK:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BLACK;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_GREY;
+					}
+					break;
+				case COVERING_TAN:
+				case COVERING_WHITE:
+				default:
+					c2 = c1;
+					pat = CoveringPattern.NONE;
+					break;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, pat, c1, false, c2, false));
 		}
 	},
 	
@@ -323,7 +377,7 @@ public enum Subspecies {
 			Race.FOX_MORPH,
 			Colour.RACE_FOX_MORPH,
 			SubspeciesPreference.TWO_AVERAGE,
-			"A bipedal fox-morph, with dirty blonde or beach-blonde fur and very large ears.",
+			"A bipedal fox-morph, with dirty blonde or bleach blonde fur and very large ears.",
 			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
 		@Override
 		public void applySpeciesChanges(Body body) {

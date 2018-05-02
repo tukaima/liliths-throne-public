@@ -86,12 +86,16 @@ import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.RacialBody;
 import com.lilithsthrone.game.character.race.Subspecies;
+import com.lilithsthrone.game.inventory.AbstractCoreItem;
 import com.lilithsthrone.game.inventory.InventorySlot;
+import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.BlockedParts;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
+import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
+import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.ColourListPresets;
@@ -316,7 +320,7 @@ public class CharacterUtils {
 		
 		
 		// Iris colour:
-		if(Math.random()>=0.9f) {
+		if(Math.random()<=0.9f) {
 			if(Math.random()>=takesAfterMotherChance) {
 				body.getCoverings().put(body.getEye().getType().getBodyCoveringType(body),
 						new Covering(body.getEye().getType().getBodyCoveringType(body), mother.getCovering(mother.getEyeType().getBodyCoveringType(mother)).getPattern(),
@@ -330,7 +334,7 @@ public class CharacterUtils {
 			}
 		}
 		// Pupil colour:
-		if(Math.random()>=0.4f) {
+		if(Math.random()<=0.5f) {
 			if(Math.random()>=takesAfterMotherChance) {
 				body.getCoverings().put(BodyCoveringType.EYE_PUPILS,
 						new Covering(body.getEye().getType().getBodyCoveringType(body), mother.getCovering(BodyCoveringType.EYE_PUPILS).getPattern(),
@@ -341,6 +345,20 @@ public class CharacterUtils {
 						new Covering(body.getEye().getType().getBodyCoveringType(body), father.getCovering(BodyCoveringType.EYE_PUPILS).getPattern(),
 								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing(),
 								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing()));
+			}
+		}
+		// Sclera colour:
+		if(Math.random()<=0.5f) {
+			if(Math.random()>=takesAfterMotherChance) {
+				body.getCoverings().put(BodyCoveringType.EYE_SCLERA,
+						new Covering(body.getEye().getType().getBodyCoveringType(body), mother.getCovering(BodyCoveringType.EYE_SCLERA).getPattern(),
+								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
+								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
+			} else {
+				body.getCoverings().put(BodyCoveringType.EYE_SCLERA,
+						new Covering(body.getEye().getType().getBodyCoveringType(body), father.getCovering(BodyCoveringType.EYE_SCLERA).getPattern(),
+								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
+								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
 			}
 		}
 		
@@ -1087,6 +1105,24 @@ public class CharacterUtils {
 		character.getBody().calculateRace();
 	}
 	
+	public static void generateItemsInInventory(NPC character) {
+		for(int i=0; i<Util.random.nextInt(4)+2; i++) {
+			List<AbstractCoreItem> items = character.getLootItems();
+			if(!items.isEmpty()) {
+				AbstractCoreItem item = items.get(Util.random.nextInt(items.size()));
+				if (item instanceof AbstractItem) {
+					character.addItem((AbstractItem) item, false);
+					
+				} else if (item instanceof AbstractClothing) {
+					character.addClothing((AbstractClothing) item, false);
+					
+				} else if (item instanceof AbstractWeapon) {
+					character.addWeapon((AbstractWeapon) item, false);
+				}
+			}
+		}
+	}
+	
 	/**
 	 * Sets the History for the supplied character.
 	 * @param character
@@ -1347,7 +1383,10 @@ public class CharacterUtils {
 					}
 				}
 				
-				if(!slot.isCoreClothing() && onlyAddCoreClothing) {
+				if((!slot.isCoreClothing() && onlyAddCoreClothing)
+						|| (slot==InventorySlot.LEG
+							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER)!=null
+							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER).getClothingType().toString().contains("DRESS"))) {//TODO please don't do this
 					// Don't add clothing if not core
 				} else {
 					if((slot.isCoreClothing() || Math.random()>0.75f || slot.isJewellery()) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {
@@ -1387,7 +1426,10 @@ public class CharacterUtils {
 					}
 				}
 				
-				if(!slot.isCoreClothing() && onlyAddCoreClothing) {
+				if((!slot.isCoreClothing() && onlyAddCoreClothing)
+						|| (slot==InventorySlot.LEG
+							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER)!=null
+							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER).getClothingType().toString().contains("DRESS"))) {//TODO please don't do this
 					// Don't add clothing if not core
 				} else {
 					if((slot.isCoreClothing() || Math.random()>0.75f || slot.isJewellery()) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {

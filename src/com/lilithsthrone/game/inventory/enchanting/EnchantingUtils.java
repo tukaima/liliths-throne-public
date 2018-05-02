@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.combat.SpellSchool;
 import com.lilithsthrone.game.inventory.AbstractCoreItem;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
@@ -93,7 +94,7 @@ public class EnchantingUtils {
 			potionDescriptor = ingredient.getEnchantmentEffect().getPotionDescriptor();
 		}
 		
-		String finalPotionName = potionDescriptor + potionName;
+		String finalPotionName = ((potionDescriptor==null || potionDescriptor.isEmpty())?"":Util.capitaliseSentence(potionDescriptor)+" ") + potionName;
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getPrimaryModifier() != null && ie.getPrimaryModifier() != TFModifier.NONE) {
@@ -129,6 +130,15 @@ public class EnchantingUtils {
 		}
 		if(Main.game.getPlayer().hasPerkAnywhereInTree(Perk.CLOTHING_ENCHANTER) && ingredient instanceof AbstractClothing) {
 			cost/=2;
+		}
+		
+		if(Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.WATER)
+				&& (effect.getPrimaryModifier()==TFModifier.TF_MOD_WETNESS
+						|| effect.getSecondaryModifier()==TFModifier.TF_MOD_WETNESS
+						|| effect.getPrimaryModifier()==TFModifier.TF_MILK
+						|| effect.getPrimaryModifier()==TFModifier.TF_CUM
+						|| effect.getPrimaryModifier()==TFModifier.TF_GIRLCUM)) {
+			cost = 0;
 		}
 		
 		return cost;

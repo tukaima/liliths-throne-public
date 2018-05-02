@@ -647,6 +647,22 @@ public enum BodyCoveringType {
 			Colour.allSlimeColours,
 			null),
 	
+	SLIME_SCLERA("a layer of",
+			false,
+			"slime",
+			"slime",
+			Util.newArrayListOfValues(
+					new ListValue<CoveringModifier>(CoveringModifier.GOOEY)),
+			null,
+			Util.newArrayListOfValues(
+					new ListValue<CoveringPattern>(CoveringPattern.EYE_SCLERA)),
+			Util.newArrayListOfValues(
+					new ListValue<CoveringPattern>(CoveringPattern.EYE_SCLERA_HETEROCHROMATIC)),
+			Colour.allSlimeColours,
+			null,
+			Colour.allSlimeColours,
+			null),
+	
 	SLIME_HAIR("a layer of",
 			false,
 			"slime",
@@ -794,11 +810,13 @@ public enum BodyCoveringType {
 					new ListValue<CoveringModifier>(CoveringModifier.SMOOTH)),
 			null,
 			null,
-			null,
-			Util.newArrayListOfValues(new ListValue<Colour>(Colour.ORIFICE_INTERIOR)),
-			null,
-			Colour.orificeInteriors,
-			null),
+			CoveringPattern.allStandardCoveringPatterns,
+			Util.newArrayListOfValues(
+					new ListValue<Colour>(Colour.ORIFICE_INTERIOR)),
+			Colour.allSkinColours,
+			Util.newArrayListOfValues(
+					new ListValue<Colour>(Colour.ORIFICE_INTERIOR)),
+			Colour.allSkinColours),
 
 	// HAIR:
 
@@ -1588,6 +1606,22 @@ public enum BodyCoveringType {
 			Colour.dyePupilColours,
 			Colour.naturalPupilColours,
 			Colour.dyePupilColours),
+
+	EYE_SCLERA("a pair of",
+			true,
+			"sclerae",
+			"sclera",
+			Util.newArrayListOfValues(
+					new ListValue<CoveringModifier>(CoveringModifier.EYE)),
+			null,
+			Util.newArrayListOfValues(
+					new ListValue<CoveringPattern>(CoveringPattern.EYE_SCLERA)),
+			Util.newArrayListOfValues(
+					new ListValue<CoveringPattern>(CoveringPattern.EYE_SCLERA_HETEROCHROMATIC)),
+			Colour.naturalScleraColours,
+			Colour.dyeScleraColours,
+			Colour.naturalScleraColours,
+			Colour.dyeScleraColours),
 	
 	// Fluids:
 	
@@ -2006,6 +2040,7 @@ public enum BodyCoveringType {
 		for(Colour c : this.naturalColoursPrimary) {
 			allColours.add(c);
 			allPrimaryColours.add(c);
+//			this.dyeColoursPrimary.remove(c);
 		}
 		for(Colour c : this.dyeColoursPrimary) {
 			allColours.add(c);
@@ -2014,6 +2049,7 @@ public enum BodyCoveringType {
 		for(Colour c : this.naturalColoursSecondary) {
 			allColours.add(c);
 			allSecondaryColours.add(c);
+//			this.dyeColoursSecondary.remove(c);
 		}
 		for(Colour c : this.dyeColoursSecondary) {
 			allColours.add(c);

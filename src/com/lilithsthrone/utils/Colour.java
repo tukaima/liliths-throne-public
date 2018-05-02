@@ -480,6 +480,8 @@ public enum Colour {
 	COVERING_NONE(BaseColour.GREY, "none"),
 
 	// Eye colours:
+	EYE_WHITE(BaseColour.WHITE, "white"),
+	
 	EYE_BROWN(BaseColour.BROWN, "brown"),
 	EYE_BLUE(BaseColour.BLUE_LIGHT, "blue"),
 	EYE_HAZEL(BaseColour.TAN, "hazel"),
@@ -703,25 +705,6 @@ public enum Colour {
 			new ListValue<Colour>(Colour.ANTLER_LILAC),
 			new ListValue<Colour>(Colour.ANTLER_PURPLE));
 	
-
-	// Orifices:
-	
-	public static List<Colour> orificeInteriors = Util.newArrayListOfValues(
-			new ListValue<Colour>(Colour.ORIFICE_INTERIOR),
-			new ListValue<Colour>(Colour.SKIN_PALE),
-			new ListValue<Colour>(Colour.SKIN_LIGHT),
-			new ListValue<Colour>(Colour.SKIN_OLIVE),
-			new ListValue<Colour>(Colour.SKIN_DARK),
-			new ListValue<Colour>(Colour.SKIN_EBONY),
-			new ListValue<Colour>(Colour.SKIN_RED),
-			new ListValue<Colour>(Colour.SKIN_BROWN),
-			new ListValue<Colour>(Colour.SKIN_GREEN),
-			new ListValue<Colour>(Colour.SKIN_PINK),
-			new ListValue<Colour>(Colour.SKIN_BLUE),
-			new ListValue<Colour>(Colour.SKIN_LILAC),
-			new ListValue<Colour>(Colour.SKIN_PURPLE),
-			new ListValue<Colour>(Colour.SKIN_IVORY));
-	
 	// Hair:
 	
 	public static List<Colour> naturalHairColours = Util.newArrayListOfValues(
@@ -825,6 +808,29 @@ public enum Colour {
 			new ListValue<Colour>(Colour.EYE_BLACK));
 	
 	public static List<Colour> dyePupilColours = Util.newArrayListOfValues(
+			new ListValue<Colour>(Colour.EYE_WHITE),
+			new ListValue<Colour>(Colour.EYE_SILVER),
+			new ListValue<Colour>(Colour.EYE_BROWN),
+			new ListValue<Colour>(Colour.EYE_BLUE),
+			new ListValue<Colour>(Colour.EYE_AQUA),
+			new ListValue<Colour>(Colour.EYE_GREEN),
+			new ListValue<Colour>(Colour.EYE_GREY),
+			new ListValue<Colour>(Colour.EYE_YELLOW),
+			new ListValue<Colour>(Colour.EYE_GOLD),
+			new ListValue<Colour>(Colour.EYE_RED),
+			new ListValue<Colour>(Colour.EYE_CRIMSON),
+			new ListValue<Colour>(Colour.EYE_ORANGE),
+			new ListValue<Colour>(Colour.EYE_AMBER),
+			new ListValue<Colour>(Colour.EYE_PINK),
+			new ListValue<Colour>(Colour.EYE_VIOLET),
+			new ListValue<Colour>(Colour.EYE_LILAC),
+			new ListValue<Colour>(Colour.EYE_PURPLE));
+	
+	public static List<Colour> naturalScleraColours = Util.newArrayListOfValues(
+			new ListValue<Colour>(Colour.EYE_WHITE));
+	
+	public static List<Colour> dyeScleraColours = Util.newArrayListOfValues(
+			new ListValue<Colour>(Colour.EYE_BLACK),
 			new ListValue<Colour>(Colour.EYE_SILVER),
 			new ListValue<Colour>(Colour.EYE_BROWN),
 			new ListValue<Colour>(Colour.EYE_BLUE),

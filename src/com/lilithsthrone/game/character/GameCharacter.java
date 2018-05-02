@@ -3318,7 +3318,12 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		
 		float value = getBaseAttributeValue(att) + getBonusAttributeValue(att);
 		
-		if(this.hasStatusEffect(StatusEffect.ELEMENTAL_FIRE_SERVANT_OF_FIRE) && att == Attribute.HEALTH_MAXIMUM) {
+		if(att == Attribute.HEALTH_MAXIMUM
+				&& (this.hasStatusEffect(StatusEffect.ELEMENTAL_EARTH_SERVANT_OF_EARTH)
+						|| this.hasStatusEffect(StatusEffect.ELEMENTAL_WATER_SERVANT_OF_WATER)
+						|| this.hasStatusEffect(StatusEffect.ELEMENTAL_AIR_SERVANT_OF_AIR)
+						|| this.hasStatusEffect(StatusEffect.ELEMENTAL_FIRE_SERVANT_OF_FIRE)
+						|| this.hasStatusEffect(StatusEffect.ELEMENTAL_ARCANE_SERVANT_OF_ARCANE))) {
 			value /= 2;
 		}
 		
@@ -4056,6 +4061,49 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 	
 	public String getSeductionDescription() {
 		String description = "";
+		if(this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION)
+				|| this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION)
+				|| this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_PROJECTED_TOUCH)) {
+			if(this.isFeminine()) {
+				return UtilText.parse(this,
+						UtilText.returnStringAtRandom(
+								"[npc.Name] puts on a smouldering look, and as her eyes meet yours, you hear an extremely lewd moan echoing around in your head, [npc.thought(~Aaah!~ "
+										+(this.hasVagina()
+												?"You're making me so wet!"
+												:this.hasPenis()
+													?"You're getting me so hard!"
+													:"You're turning me on so much!")+")]",
+								"[npc.Name] locks her big, innocent-looking eyes with yours, and as she pouts, you hear an echoing moan deep within your mind, [npc.thought("+
+										(this.hasVagina()
+												?"~Mmm!~ Fuck me! ~Aaa!~ My pussy's wet and ready for you!"
+												:this.hasPenis()
+													?"~Mmm!~ I can't wait to fuck you! ~Aaa!~ You're going to love my cock!"
+													:"~Mmm!~ Fuck me! ~Aaa!~ I need you so badly!")+")]",
+								(this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION)
+										|| this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_PROJECTED_TOUCH)
+										?"[npc.Name] pouts innocently at you, before blowing you a wet kiss. As she straightens back up, you feel a ghostly pair of wet lips press against your cheek."
+										:"")));
+			} else {
+				return UtilText.parse(this,
+						UtilText.returnStringAtRandom(
+								"[npc.Name] puts on a confident look, and as his eyes meet yours, you hear an extremely lewd groan echoing around in your head, [npc.thought(~Mmm!~ "
+										+(this.hasVagina()
+												?"You're making me so wet!"
+												:this.hasPenis()
+													?"You're getting me so hard!"
+													:"You're turning me on so much!")+")]",
+								"[npc.Name] locks his eyes with yours, and as he throws you a charming smile, you hear an echoing groan deep within your mind, [npc.thought("+
+										(this.hasVagina()
+												?"~Mmm!~ Fuck me! ~Aaa!~ My pussy's wet and ready for you!"
+												:this.hasPenis()
+													?"~Mmm!~ I can't wait to fuck you! You're going to love my cock!"
+													:"~Mmm!~ I can't wait to have some fun with you!")+")]",
+								(this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION)
+										|| this.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_PROJECTED_TOUCH)
+										?"[npc.Name] throws you a charming smile, before winking at you and striking a heroic pose. As he straightens back up, you feel a ghostly pair of arms pulling you into a strong, confident embrace."
+										:"")));
+			}
+		}
 		
 		if(this.isFeminine()) {
 			if(Combat.getTargetedCombatant(this).isPlayer()) {
@@ -9264,11 +9312,17 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 	}
 	
 	/**
-	 * Hard reser tof spells and spell upgrades, without refunding any points.
+	 * Hard reset of spells and spell upgrades, without refunding any points.
 	 */
 	public void resetSpells() {
 		getSpells().clear();
 		getSpellUpgrades().clear();
+	}
+	
+	public void clearSpellUpgradePoints() {
+		for(SpellSchool school : SpellSchool.values()) {
+			this.spellUpgradePoints.put(school, 0);
+		}
 	}
 	
 	/** Spells from weapons. */
@@ -9299,6 +9353,15 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		tempListSpells.sort((s1, s2) -> s1.getSpellSchool().compareTo(s2.getSpellSchool()));
 		
 		return tempListSpells;
+	}
+	
+	public boolean isSpellSchoolSpecialAbilityUnlocked(SpellSchool school) {
+		for(Spell s : this.getSpells()) {
+			if(s.getSpellSchool()==school) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Set<SpellUpgrade> getSpellUpgrades() {
@@ -9335,13 +9398,24 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		setSpellUpgradePoints(spellSchool, getSpellUpgradePoints(spellSchool) + increment);
 	}
 	
+	public boolean isAbleToTeleport() {
+		return this.hasSpell(Spell.TELEPORT) && (this.getCompanions().isEmpty() || this.hasSpellUpgrade(SpellUpgrade.TELEPORT_2));
+	}
+	
+	public float getRegenerationRate() {
+		if(this.isSpellSchoolSpecialAbilityUnlocked(SpellSchool.AIR)) {
+			return 0.2f;
+		} else {
+			return 0.1f;
+		}
+	}
+	
 	public float getHealth() {
 		if(health>getAttributeValue(Attribute.HEALTH_MAXIMUM)) {
 			health = getAttributeValue(Attribute.HEALTH_MAXIMUM);
 		}
 		return health;
 	}
-
 
 	public float getHealthPercentage() {
 		return health / getAttributeValue(Attribute.HEALTH_MAXIMUM);
@@ -9905,6 +9979,10 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 	
 	public void setRandomLocation(WorldType worldType, PlaceType placeType, boolean setAsHomeLocation) {
 		setLocation(worldType, Main.game.getWorlds().get(worldType).getRandomCell(placeType).getLocation(), setAsHomeLocation);
+	}
+	
+	public void setLocation(WorldType worldType, PlaceType placeType) {
+		setLocation(worldType, placeType, false);
 	}
 	
 	public void setLocation(WorldType worldType, PlaceType placeType, boolean setAsHomeLocation) {
@@ -11006,6 +11084,10 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 								+ "</p>"
 								+ this.getMoundRevealDescription(this)
 								:""));
+	}
+	
+	public void forceUnequipClothingIntoVoid(GameCharacter characterRemovingClothing, AbstractClothing clothing) {
+		inventory.forceUnequipClothingIntoVoid(this, characterRemovingClothing, clothing);
 	}
 	
 	public String unequipClothingIntoVoid(AbstractClothing clothing, boolean automaticClothingManagement, GameCharacter characterClothingUnequipper) { // TODO it's saying "added to inventory"
@@ -14460,6 +14542,8 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 					break;
 				case EYE_PUPILS: case SLIME_PUPILS:
 					return body.getCoverings().get(BodyCoveringType.SLIME_PUPILS);
+				case EYE_SCLERA: case SLIME_SCLERA:
+					return body.getCoverings().get(BodyCoveringType.SLIME_SCLERA);
 				case HAIR_ANGEL:
 				case HAIR_BOVINE_FUR:
 				case HAIR_CANINE_FUR:

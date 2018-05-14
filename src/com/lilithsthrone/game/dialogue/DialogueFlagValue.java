@@ -2,13 +2,15 @@ package com.lilithsthrone.game.dialogue;
 
 /**
  * @since 0.1.89
- * @version 0.2.2
+ * @version 0.2.5
  * @author Innoxia
  */
 public enum DialogueFlagValue {
+	
 	quickTrade,
 	stormTextUpdateRequired,
 	hasSnowedThisWinter,
+	
 	
 	// Essence reactions:
 	jinxedClothingDiscovered,
@@ -16,13 +18,17 @@ public enum DialogueFlagValue {
 	essenceOrgasmDiscovered,
 	essenceBottledDiscovered,
 
+	
 	// Misc.:
 	foundHappiness,
+	visitedSubmission,
+	mommyFound,
 	
 	// Gym:
 	gymIntroduced,
 	gymHadTour,
 	gymIsMember,
+	
 	
 	// Introductions:
 	angelIntroduced,
@@ -35,11 +41,12 @@ public enum DialogueFlagValue {
 	kateIntroduced,
 	vickyIntroduced,
 	
+	
 	// Red-light district:
 	prostitutionLicenseObtained,
 	
+	
 	// Shopping arcade:
-
 	nyanTalkedTo,
 	nyanComplimented,
 	nyanFlirtedWith,
@@ -57,6 +64,7 @@ public enum DialogueFlagValue {
 	
 	reactedToKatePregnancy,
 	
+	
 	// Aunt's Home:
 	knowsDate,
 	lilayaDateTalk,
@@ -65,6 +73,8 @@ public enum DialogueFlagValue {
 	reactedToPregnancyLilaya,
 	waitingOnLilayaPregnancyResults,
 	essenceExtractionKnown,
+	roseToldOnYou,
+	
 	readBook1,
 	readBook2,
 	readBook3,
@@ -112,8 +122,12 @@ public enum DialogueFlagValue {
 	amberRepeatEncountered,
 	katherineRepeatEncountered,
 	kellyRepeatEncountered,
-	zaranixRepeatEncountered
+	zaranixRepeatEncountered,
 	
+	// Lumi:
+	lumiMet,
+	lumiDisabled,
+	lumiPromisedDinner,
 	
 	;
 }

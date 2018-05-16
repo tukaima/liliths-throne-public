@@ -9,12 +9,12 @@ import java.util.Map.Entry;
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.combat.SpellSchool;
+import com.lilithsthrone.game.dialogue.utils.EnchantmentDialogue;
 import com.lilithsthrone.game.inventory.AbstractCoreItem;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
-import com.lilithsthrone.game.inventory.item.ItemEffect;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
@@ -39,7 +39,7 @@ public class EnchantingUtils {
 
 		craftedItem.setItemEffects(effectsToBeAdded);
 		
-		craftedItem.setName(getPotionName(ingredient, effectsToBeAdded));
+		craftedItem.setName(EnchantmentDialogue.getOutputName());
 		craftedItem.setColour(ingredient.getEnchantmentEffect().getColour());
 		craftedItem.setSVGString(getSVGString(ingredient, effectsToBeAdded));
 		
@@ -60,6 +60,8 @@ public class EnchantingUtils {
 				((AbstractClothing)ingredient).getTertiaryColour(),
 				effectsToBeAdded);
 		
+		craftedClothing.setName(EnchantmentDialogue.getOutputName());
+		
 		craftedClothing.setEnchantmentKnown(true);
 		
 		return craftedClothing;
@@ -70,7 +72,6 @@ public class EnchantingUtils {
 		if(ingredient.getEnchantmentItemType(effects) instanceof AbstractClothingType) {
 			return Util.capitaliseSentence(ingredient.getName());
 		}
-		
 		
 		if(((AbstractItem)ingredient).getItemType().getId().equals(ItemType.ORIENTATION_HYPNO_WATCH.getId())) {
 			if(effects.isEmpty() || effects.get(0).getPrimaryModifier()==TFModifier.REMOVAL) {
@@ -91,7 +92,13 @@ public class EnchantingUtils {
 		String potionPreSuffix = ""; // it was either PreSuffix or PrefixSuffix...
 		
 		if(ingredient!=null) {
-			potionDescriptor = ingredient.getEnchantmentEffect().getPotionDescriptor();
+			try {
+				potionDescriptor = ingredient.getEffects().get(0).getItemEffectType().getPotionDescriptor();
+			} catch(Exception ex) {
+				// :3
+				// Cat-face comments aren't helpful damn it!
+				System.err.println("EnchantingUtils: getPotionName() error 1."); 
+			}
 		}
 		
 		String finalPotionName = ((potionDescriptor==null || potionDescriptor.isEmpty())?"":Util.capitaliseSentence(potionDescriptor)+" ") + potionName;
@@ -134,10 +141,11 @@ public class EnchantingUtils {
 		
 		if(Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.WATER)
 				&& (effect.getPrimaryModifier()==TFModifier.TF_MOD_WETNESS
-						|| effect.getSecondaryModifier()==TFModifier.TF_MOD_WETNESS
 						|| effect.getPrimaryModifier()==TFModifier.TF_MILK
 						|| effect.getPrimaryModifier()==TFModifier.TF_CUM
-						|| effect.getPrimaryModifier()==TFModifier.TF_GIRLCUM)) {
+						|| effect.getPrimaryModifier()==TFModifier.TF_GIRLCUM
+						|| effect.getSecondaryModifier()==TFModifier.TF_MOD_WETNESS
+						|| effect.getSecondaryModifier()==TFModifier.TF_MOD_REGENERATION)) {
 			cost = 0;
 		}
 		
@@ -160,7 +168,17 @@ public class EnchantingUtils {
 			}
 		}
 		for(Entry<ItemEffect, Integer> entry : effectCount.entrySet()) {
-			cost += entry.getKey().getCost() * Math.abs(entry.getValue());
+			if(Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.WATER)
+					&& (entry.getKey().getPrimaryModifier()==TFModifier.TF_MOD_WETNESS
+							|| entry.getKey().getPrimaryModifier()==TFModifier.TF_MILK
+							|| entry.getKey().getPrimaryModifier()==TFModifier.TF_CUM
+							|| entry.getKey().getPrimaryModifier()==TFModifier.TF_GIRLCUM
+							|| entry.getKey().getSecondaryModifier()==TFModifier.TF_MOD_WETNESS
+							|| entry.getKey().getSecondaryModifier()==TFModifier.TF_MOD_REGENERATION)) {
+				// No cost
+			} else {
+				cost += entry.getKey().getCost() * Math.abs(entry.getValue());
+			}
 		}
 		
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING) && ingredient instanceof AbstractItem) {
@@ -169,6 +187,7 @@ public class EnchantingUtils {
 		if(Main.game.getPlayer().hasPerkAnywhereInTree(Perk.CLOTHING_ENCHANTER) && ingredient instanceof AbstractClothing) {
 			cost/=2;
 		}
+		
 		
 		return cost;
 	}

@@ -30,15 +30,14 @@ import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.DamageType;
 import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellSchool;
-import com.lilithsthrone.game.dialogue.DebugDialogue;
 import com.lilithsthrone.game.dialogue.DialogueNodeOld;
-import com.lilithsthrone.game.dialogue.MapDisplay;
+import com.lilithsthrone.game.dialogue.DialogueNodeType;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
-import com.lilithsthrone.game.inventory.item.ItemEffect;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
@@ -48,6 +47,7 @@ import com.lilithsthrone.game.sex.SexParticipantType;
 import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.RenderingEngine;
+import com.lilithsthrone.rendering.SVGImages;
 import com.lilithsthrone.utils.ClothingRarityComparator;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.ItemRarityComparator;
@@ -184,8 +184,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 
@@ -249,8 +249,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	public static final DialogueNodeOld PLANNER_SIDE = new DialogueNodeOld("Planner", "", true) {
@@ -327,8 +327,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	public static final DialogueNodeOld PLANNER_ROMANCE = new DialogueNodeOld("Planner", "", true) {
@@ -405,8 +405,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -487,8 +487,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 
@@ -502,7 +502,7 @@ public class PhoneDialogue {
 			UtilText.nodeContentSB.append(
 					
 				"<details>"
-				+ "<summary>[style.boldExcellent(Important information)]</summary>"
+				+ "<summary>[style.boldExcellent(Stats Mechanics)]</summary>"
 					+ "<p style='text-align:center;padding:margin:0;'>"
 						+ "All derived stats start to have diminishing returns past the half-way point!</br>"
 						+ "<b>For example:</b></br>"
@@ -535,7 +535,7 @@ public class PhoneDialogue {
 							"Spell Cost:</br>"
 							+ "<b>-"+Util.getModifiedDropoffValue(Main.game.getPlayer().getAttributeValue(Attribute.SPELL_COST_MODIFIER), Attribute.SPELL_COST_MODIFIER.getUpperLimit())+"%</b>")
 
-					+ "<div class='container-full-width' style='text-align:center; background:#292929;'>"
+					+ "<div class='container-full-width' style='text-align:center; background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
 						+ "<b style='color:"+Colour.BASE_PINK_LIGHT.toWebHexString()+";'>Pregnancy calculation:</b> <i>"+GameCharacter.PREGNANCY_CALCULATION+"</i>"
 					+ "</div>"
 
@@ -671,8 +671,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -880,8 +880,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -982,8 +982,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1097,8 +1097,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1329,7 +1329,7 @@ public class PhoneDialogue {
 	}
 
 	private static String statRow(String colourLeft, String left, Colour colourCentre, String centre, String colourRight, String right, boolean light) {
-		return "<div class='container-full-width inner' style='margin-bottom:0;"+(light?"background:#292929;'":"'")+">"
+		return "<div class='container-full-width inner' style='margin-bottom:0;"+(light?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+">"
 				+ "<div style='color:"+colourLeft+"; width:40%; float:left; font-weight:bold; margin:0; padding:0;'>"
 					+ left
 				+ "</div>"
@@ -1343,7 +1343,7 @@ public class PhoneDialogue {
 	}
 	
 	private static String statRow(Colour colourLeft, String left, Colour colourCentre, String centre, Colour colourRight, String right, boolean light) {
-		return "<div class='container-full-width inner' style='margin-bottom:0;"+(light?"background:#292929;'":"'")+">"
+		return "<div class='container-full-width inner' style='margin-bottom:0;"+(light?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+">"
 					+ "<div style='color:"+colourLeft.toWebHexString()+"; width:40%; float:left; font-weight:bold; margin:0; padding:0;'>"
 						+ left
 					+ "</div>"
@@ -1361,11 +1361,11 @@ public class PhoneDialogue {
 	}
 	
 	private static String getAttributeBox(GameCharacter owner, Attribute att, String effect, boolean half) {
-		return "<div class='container-half-width' style='"+(half?"width:calc(50% - 16px);":"width:calc(33% - 16px);")+" margin-bottom:0; background:#292929;'>"
-					+ "<div class='container-half-width' style='width:66.6%;margin:0;background:#292929;'>"
+		return "<div class='container-half-width' style='"+(half?"width:calc(50% - 16px);":"width:calc(33% - 16px);")+" margin-bottom:0; background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
+					+ "<div class='container-half-width' style='width:66.6%;margin:0;background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
 						+ "<b style='color:" + att.getColour().toWebHexString() + ";'>"+Util.capitaliseSentence(att.getName())+"</b>"
 					+ "</div>"
-					+ "<div class='container-half-width' style='width:33.3%;margin:0;background:#292929;text-align:center;'>"
+					+ "<div class='container-half-width' style='width:33.3%;margin:0;background:"+Colour.BACKGROUND_ALT.toWebHexString()+";text-align:center;'>"
 						+ "<b"+(owner.getAttributeValue(att)==att.getUpperLimit()?" style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'":"")+">"+owner.getAttributeValue(att)+"</b>"
 					+ "</div>"
 					+ "<div class='container-full-width' style='height:6px;padding:0;border-radius: 2px;'>"
@@ -1373,7 +1373,7 @@ public class PhoneDialogue {
 								+ " margin:0 0 0 "+(att.getLowerLimit()>=0?0:(owner.getAttributeValue(att)>0?"50%":(Math.abs(att.getLowerLimit())+owner.getAttributeValue(att))+"%"))+";"
 								+ " height:100%; background:" + (owner.getAttributeValue(att)>0?att.getColour().toWebHexString():att.getColour().getShades()[1]) + "; float:left; border-radius: 2px;'></div>"
 					+ "</div>"
-					+ "<div class='container-half-width' style='margin:0;background:#292929; padding:0; text-align:center;'>"
+					+ "<div class='container-half-width' style='margin:0;background:"+Colour.BACKGROUND_ALT.toWebHexString()+"; padding:0; text-align:center;'>"
 							+ "Base: "+(owner.getBaseAttributeValue(att) > 0 
 								? "<b style='color:" + Colour.GENERIC_GOOD.getShades()[1] + ";"
 										: (owner.getBaseAttributeValue(att) < 0
@@ -1382,7 +1382,7 @@ public class PhoneDialogue {
 												+owner.getBaseAttributeValue(att)
 												+"</b>"
 					+ "</div>"
-					+ "<div class='container-half-width' style='margin:0;background:#292929; padding:0; text-align:center;'>"
+					+ "<div class='container-half-width' style='margin:0;background:"+Colour.BACKGROUND_ALT.toWebHexString()+"; padding:0; text-align:center;'>"
 							+ "Bonus: "
 							+ (owner.getBonusAttributeValue(att) > 0 
 									? "<b style='color:" + Colour.GENERIC_GOOD.getShades()[1] + ";"
@@ -1393,7 +1393,7 @@ public class PhoneDialogue {
 													+"</b>"
 					+ "</div>"
 					+ (effect.length()>0
-							?"<div class='container-full-width' style='margin:0;background:#292929; padding:0; text-align:center;'>"
+							?"<div class='container-full-width' style='margin:0;background:"+Colour.BACKGROUND_ALT.toWebHexString()+"; padding:0; text-align:center;'>"
 								+"<hr></hr>"
 								+ "<i>"+effect+"</i>"
 							+ "</div>"
@@ -1446,8 +1446,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1491,8 +1491,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1554,8 +1554,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 
@@ -1579,30 +1579,33 @@ public class PhoneDialogue {
 
 		@Override
 		public String getContent() {
-
 			journalSB = new StringBuilder();
 
-			// All known weapons:
-
-			journalSB.append("<div class='extraAttribute-third slot'>Slot</div>");
-			journalSB.append("<div class='extraAttribute-third name'>Weapon</div>");
-			journalSB.append("<div class='extraAttribute-third colours'>Damage types <span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>(Hover for image)</span></div>");
-
+			journalSB.append("<div class='container-full-width' style='text-align:center;'>"
+					+ "<i>Hover over the coloured icons to see preview pictures of each weapon.</i>"
+					+ "</div>");
+			
 			for (AbstractWeaponType weapon : weaponsDiscoveredList) {
 				if (Main.getProperties().isWeaponDiscovered(weapon)) {
-					journalSB.append("<div class='extraAttribute-third slot'>" + Util.capitaliseSentence(weapon.getSlot().getName()) + "</div>");
-					journalSB.append("<div class='extraAttribute-third name' style='color:" + weapon.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(weapon.getName()) + "</div>");
-
-					journalSB.append("<div class='extraAttribute-third colours'>");
-					for (DamageType dt : weapon.getAvailableDamageTypes())
+					journalSB.append(
+							"<div class='container-full-width' style='margin-bottom:0;'>"
+							+ "<div class='container-full-width' style='width:calc(60% - 16px)'>"
+									+ "<b style='color:" + weapon.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(weapon.getName()) + "</b> ("+Util.capitaliseSentence(weapon.getSlot().getName())+")"
+							+ "</div>"
+							+ "<div class='container-full-width' style='width:calc(40% - 16px)'>");
+					
+					for (DamageType dt : weapon.getAvailableDamageTypes()) {
 						journalSB.append("<div class='phone-item-colour' id='" + (weapon.hashCode() + "_" + dt.toString()) + "' style='background-color:" + dt.getMultiplierAttribute().getColour().toWebHexString() + ";'></div>");
-					journalSB.append("</div>");
-
+					}
+					
+					journalSB.append("</div>"
+							+ "</div>");
+					
 				} else {
-					journalSB.append("<div class='extraAttribute-third slot'>" + Util.capitaliseSentence(weapon.getSlot().getName()) + "</div>");
-					journalSB.append("<div class='extraAttribute-third name'>???</div>");
-
-					journalSB.append("<div class='extraAttribute-third colours'>???</div>");
+					journalSB.append(
+						"<div class='container-full-width' style='text-align:center; margin-bottom:0;'>"
+								+ "[style.boldDisabled(Undiscovered)]"
+						+ "</div>");
 				}
 			}
 
@@ -1620,8 +1623,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	public static final DialogueNodeOld CLOTHING_CATALOGUE = new DialogueNodeOld("Discovered Clothing", "", true) {
@@ -1629,34 +1632,33 @@ public class PhoneDialogue {
 
 		@Override
 		public String getContent() {
-
 			journalSB = new StringBuilder();
 
-			// All known weapons:
-
-			journalSB.append("<div class='extraAttribute-third slot'>Slot</div>");
-			journalSB.append("<div class='extraAttribute-third name'>Clothing</div>");
-			journalSB.append("<div class='extraAttribute-third colours'>Colours <span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>(Hover for image)</span></div>");
-
+			journalSB.append("<div class='container-full-width' style='text-align:center;'>"
+					+ "<i>Hover over the coloured icons to see preview pictures of each item of clothing.</i>"
+					+ "</div>");
+			
 			for (AbstractClothingType clothing : clothingDiscoveredList) {
 				if (Main.getProperties().isClothingDiscovered(clothing)) {
-					String sizeClass = ""; //hack to prevent overflow... works for up to 30 colours
-					if (clothing.getAllAvailablePrimaryColours().size() > 15){
-						sizeClass = "extraAttribute-third-large";
-					}
-					journalSB.append("<div class='extraAttribute-third "+sizeClass+" slot'>" + Util.capitaliseSentence(clothing.getSlot().getName()) + "</div>");
-					journalSB.append("<div class='extraAttribute-third "+sizeClass+" name' style='color:" + clothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(clothing.getName()) + "</div>");
-
-					journalSB.append("<div class='extraAttribute-third "+sizeClass+" colours'>");
-					for (Colour c : clothing.getAllAvailablePrimaryColours())
+					journalSB.append(
+							"<div class='container-full-width' style='margin-bottom:0;'>"
+							+ "<div class='container-full-width' style='width:calc(40% - 16px)'>"
+									+ "<b style='color:" + clothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(clothing.getName()) + "</b> ("+Util.capitaliseSentence(clothing.getSlot().getName())+")"
+							+ "</div>"
+							+ "<div class='container-full-width' style='width:calc(60% - 16px)'>");
+					
+					for (Colour c : clothing.getAllAvailablePrimaryColours()) {
 						journalSB.append("<div class='phone-item-colour' id='" + (clothing.hashCode() + "_" + c.toString()) + "' style='background-color:" + c.toWebHexString() + ";'></div>");
-					journalSB.append("</div>");
-
+					}
+					
+					journalSB.append("</div>"
+							+ "</div>");
+					
 				} else {
-					journalSB.append("<div class='extraAttribute-third slot'>" + Util.capitaliseSentence(clothing.getSlot().getName()) + "</div>");
-					journalSB.append("<div class='extraAttribute-third name'>???</div>");
-
-					journalSB.append("<div class='extraAttribute-third colours'>???</div>");
+					journalSB.append(
+						"<div class='container-full-width' style='text-align:center; margin-bottom:0;'>"
+								+ "[style.boldDisabled(Undiscovered ("+Util.capitaliseSentence(clothing.getSlot().getName())+"))]"
+						+ "</div>");
 				}
 			}
 
@@ -1674,8 +1676,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	public static final DialogueNodeOld ITEM_CATALOGUE = new DialogueNodeOld("Discovered items", "View discovered items", true) {
@@ -1683,17 +1685,22 @@ public class PhoneDialogue {
 
 		@Override
 		public String getContent() {
-
-			// All known items:
 			journalSB = new StringBuilder();
-			journalSB.append("<div class='extraAttribute-third'>Item</div>");
-			journalSB.append("<div class='extraAttribute-two-thirds'>Effects</div>");
-
+			
+			journalSB.append("<div class='container-full-width' style='text-align:center;'>"
+					+ "<i>Hover over the 'i' icons to see preview pictures of each item.</i>"
+					+ "</div>");
+			
 			for (AbstractItemType item : itemsDiscoveredList) {
 				if (Main.getProperties().isItemDiscovered(item)) {
-					journalSB.append("<div class='extraAttribute-third' style='color:" + item.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(item.getName(false)) + "</div>");
-
-					journalSB.append("<div class='extraAttribute-two-thirds'>");
+					journalSB.append(
+							"<div class='container-full-width' style='margin-bottom:0;'>"
+							+ "<div class='container-full-width' style='width:calc(40% - 16px)'>"
+									+ "<div class='title-button' id='"+ItemType.itemToIdMap.get(item)+"' style='background:transparent; position:relative; top:0; left:0; float:left; margin:0 8px 0 0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getInformationIcon()+"</div>"
+									+ " <b style='color:" + item.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(item.getName(false)) + "</b>"
+							+ "</div>"
+							+ "<div class='container-full-width' style='width:calc(60% - 16px)'>");
+					
 					if (item.getEffects().isEmpty()) {
 						journalSB.append("-");
 					} else {
@@ -1707,15 +1714,18 @@ public class PhoneDialogue {
 							}
 						}
 					}
-					journalSB.append("</div>");
-
+					
+					journalSB.append("</div>"
+							+ "</div>");
+					
 				} else {
-					journalSB.append("<div class='extraAttribute-third'>???</div>");
-
-					journalSB.append("<div class='extraAttribute-two-thirds'>???</div>");
+					journalSB.append(
+						"<div class='container-full-width' style='text-align:center; margin-bottom:0;'>"
+								+ "[style.boldDisabled(Undiscovered)]"
+						+ "</div>");
 				}
 			}
-
+			
 			return journalSB.toString();
 		}
 
@@ -1730,8 +1740,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1860,8 +1870,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 
@@ -1944,8 +1954,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -1967,8 +1977,8 @@ public class PhoneDialogue {
 						+"</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
 							+ "[style.boldArcane(School of Arcane ability:)] "
-								+(!Main.game.getPlayer().hasAnySpellInSchool(SpellSchool.ARCANE)
-									?"[style.colourDisabled("+SpellSchool.ARCANE.getPassiveBuff()+")]</br>(Requires knowing at least one Arcane school spell to unlock.)"
+								+(!Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.ARCANE)
+									?"[style.colourDisabled("+SpellSchool.ARCANE.getPassiveBuff()+")]</br>(Requires knowing at least <b>three</b> Arcane school spells to unlock.)"
 									:"[style.colourGood("+SpellSchool.ARCANE.getPassiveBuff()+")]")
 						+ "</div>"
 					+"</div>");
@@ -2012,7 +2022,7 @@ public class PhoneDialogue {
 								CHARACTER_SPELLS_ARCANE) {
 							@Override
 							public DialogueNodeOld getNextDialogue() {
-								return DebugDialogue.getDefaultDialogueNoEncounter();
+								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
 							public void effects() {
@@ -2042,8 +2052,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -2065,8 +2075,8 @@ public class PhoneDialogue {
 						+"</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
 							+ "[style.boldEarth(School of Earth ability:)] "
-								+(!Main.game.getPlayer().hasAnySpellInSchool(SpellSchool.EARTH)
-									?"[style.colourDisabled("+SpellSchool.EARTH.getPassiveBuff()+")]</br>(Requires knowing at least one Earth school spell to unlock.)"
+								+(!Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.EARTH)
+									?"[style.colourDisabled("+SpellSchool.EARTH.getPassiveBuff()+")]</br>(Requires knowing at least <b>three</b> Earth school spells to unlock.)"
 									:"[style.colourGood("+SpellSchool.EARTH.getPassiveBuff()+")]")
 						+ "</div>"
 					+"</div>");
@@ -2114,7 +2124,7 @@ public class PhoneDialogue {
 								CHARACTER_SPELLS_EARTH) {
 							@Override
 							public DialogueNodeOld getNextDialogue() {
-								return DebugDialogue.getDefaultDialogueNoEncounter();
+								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
 							public void effects() {
@@ -2144,8 +2154,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -2167,8 +2177,8 @@ public class PhoneDialogue {
 						+"</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
 							+ "[style.boldWater(School of Water ability:)] "
-								+(!Main.game.getPlayer().hasAnySpellInSchool(SpellSchool.WATER)
-									?"[style.colourDisabled("+SpellSchool.WATER.getPassiveBuff()+")]</br>(Requires knowing at least one Water school spell to unlock.)"
+								+(!Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.WATER)
+									?"[style.colourDisabled("+SpellSchool.WATER.getPassiveBuff()+")]</br>(Requires knowing at least <b>three</b> Water school spells to unlock.)"
 									:"[style.colourGood("+SpellSchool.WATER.getPassiveBuff()+")]")
 						+ "</div>"
 					+"</div>");
@@ -2216,7 +2226,7 @@ public class PhoneDialogue {
 								CHARACTER_SPELLS_WATER) {
 							@Override
 							public DialogueNodeOld getNextDialogue() {
-								return DebugDialogue.getDefaultDialogueNoEncounter();
+								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
 							public void effects() {
@@ -2246,8 +2256,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -2269,8 +2279,8 @@ public class PhoneDialogue {
 						+"</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
 							+ "[style.boldAir(School of Air ability:)] "
-								+(!Main.game.getPlayer().hasAnySpellInSchool(SpellSchool.AIR)
-									?"[style.colourDisabled("+SpellSchool.AIR.getPassiveBuff()+")]</br>(Requires knowing at least one Air school spell to unlock.)"
+								+(!Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.AIR)
+									?"[style.colourDisabled("+SpellSchool.AIR.getPassiveBuff()+")]</br>(Requires knowing at least <b>three</b> Air school spells to unlock.)"
 									:"[style.colourGood("+SpellSchool.AIR.getPassiveBuff()+")]")
 						+ "</div>"
 					+"</div>");
@@ -2318,7 +2328,7 @@ public class PhoneDialogue {
 								CHARACTER_SPELLS_AIR) {
 							@Override
 							public DialogueNodeOld getNextDialogue() {
-								return DebugDialogue.getDefaultDialogueNoEncounter();
+								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
 							public void effects() {
@@ -2348,8 +2358,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -2371,8 +2381,8 @@ public class PhoneDialogue {
 						+"</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
 							+ "[style.boldFire(School of Fire ability:)] "
-								+(!Main.game.getPlayer().hasAnySpellInSchool(SpellSchool.FIRE)
-									?"[style.colourDisabled("+SpellSchool.FIRE.getPassiveBuff()+")]</br>(Requires knowing at least one Fire school spell to unlock.)"
+								+(!Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.FIRE)
+									?"[style.colourDisabled("+SpellSchool.FIRE.getPassiveBuff()+")]</br>(Requires knowing at least <b>three</b> Fire school spells to unlock.)"
 									:"[style.colourGood("+SpellSchool.FIRE.getPassiveBuff()+")]")
 						+ "</div>"
 					+"</div>");
@@ -2420,7 +2430,7 @@ public class PhoneDialogue {
 								CHARACTER_SPELLS_FIRE) {
 							@Override
 							public DialogueNodeOld getNextDialogue() {
-								return DebugDialogue.getDefaultDialogueNoEncounter();
+								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
 							public void effects() {
@@ -2450,8 +2460,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	
@@ -2462,17 +2472,18 @@ public class PhoneDialogue {
 		@Override
 		public String getContent() {
 			journalSB = new StringBuilder(
-					"<div class='container-full-width' style='padding:8px;'>"
-						+ "You can select your [style.colourLust(desire)] for each fetish [style.colourArcane(for free)],"
-							+ " or choose to take the associated [style.colourFetish(fetish)] for [style.colourArcane("+Fetish.FETISH_ANAL_GIVING.getCost()+" Arcane Essences)].</br>"
-						+ "Choosing a desire will affect bonus lust gains in sex, while taking a fetish will permanently lock your desire to 'love', and also give you special bonuses."
-						+ " Fetishes can only be removed through enchanted potions.</br>"
-						+ "Your currently selected desire has a "+Colour.FETISH.getName()+" border, but your true desire (indicated by the coloured desire icon) may be modified by enchanted clothes or other items.</br>"
-						+ "You earn experience for each fetish through performing related actions in sex."
-						+ " Experience is earned regardless of whether or not you have the associated fetish."
-						+ " Higher level fetishes will cause both you and your partner to gain more arousal from related sex actions, as well as increase the fetish's bonuses.</br>"
-						+ "Finally, derived fetishes cannot be directly unlocked, but are instead automatically applied when you meet their requirements."
-					+ "</div>");
+					"<details>"
+						+ "<summary>[style.boldFetish(Fetish Information)]</summary>"
+							+ "You can select your [style.colourLust(desire)] for each fetish [style.colourArcane(for free)],"
+							+ " or choose to take the associated [style.colourFetish(fetish)] for [style.colourArcane("+Fetish.FETISH_ANAL_GIVING.getCost()+" Arcane Essences)].</br></br>"
+							+ "Choosing a desire will affect bonus lust gains in sex, while taking a fetish will permanently lock your desire to 'love', and also give you special bonuses."
+							+ " Fetishes can only be removed through enchanted potions.</br></br>"
+							+ "Your currently selected desire has a "+Colour.FETISH.getName()+" border, but your true desire (indicated by the coloured desire icon) may be modified by enchanted clothes or other items.</br></br>"
+							+ "You earn experience for each fetish through performing related actions in sex."
+							+ " Experience is earned regardless of whether or not you have the associated fetish."
+							+ " Higher level fetishes will cause both you and your partner to gain more arousal from related sex actions, as well as increase the fetish's bonuses.</br></br>"
+							+ "Finally, derived fetishes cannot be directly unlocked, but are instead automatically applied when you meet their requirements."
+					+ "</details>");
 			
 			// Normal fetishes:
 
@@ -2541,8 +2552,8 @@ public class PhoneDialogue {
 		}
 
 		@Override
-		public MapDisplay getMapDisplay() {
-			return MapDisplay.PHONE;
+		public DialogueNodeType getDialogueNodeType() {
+			return DialogueNodeType.PHONE;
 		}
 	};
 	

@@ -20,7 +20,6 @@ import com.lilithsthrone.game.character.body.CoverableArea;
 import com.lilithsthrone.game.character.body.types.AntennaType;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.types.HornType;
-import com.lilithsthrone.game.character.body.types.PenisType;
 import com.lilithsthrone.game.character.body.types.TailType;
 import com.lilithsthrone.game.character.body.types.VaginaType;
 import com.lilithsthrone.game.character.body.types.WingType;
@@ -41,6 +40,8 @@ import com.lilithsthrone.game.combat.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
+import com.lilithsthrone.game.inventory.enchanting.LoadedEnchantment;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.RenderingEngine;
 import com.lilithsthrone.utils.Colour;
@@ -48,7 +49,7 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.2.4
+ * @version 0.2.5
  * @author Innoxia
  */
 public class TooltipInformationEventListener implements EventListener {
@@ -66,6 +67,7 @@ public class TooltipInformationEventListener implements EventListener {
 	private SpellUpgrade spellUpgrade;
 	private Attribute attribute;
 	private InventorySlot concealedSlot;
+	private LoadedEnchantment loadedEnchantment;
 	private static StringBuilder tooltipSB  = new StringBuilder();
 	
 	
@@ -656,7 +658,7 @@ public class TooltipInformationEventListener implements EventListener {
 					if(!owner.isPlayer() && !owner.getPlayerKnowsAreas().contains(CoverableArea.PENIS)) {
 						tooltipSB.append(getEmptyBodyPartDiv("Penis", "Unknown!"));
 					} else {
-						if (owner.getPenisType() != PenisType.NONE) {
+						if (owner.hasPenis()) {
 							tooltipSB.append(getBodyPartDiv("Penis", owner.getPenisRace(), owner.getPenisType().getBodyCoveringType(owner)));
 						} else {
 							tooltipSB.append(getEmptyBodyPartDiv("Penis", "None"));
@@ -706,7 +708,7 @@ public class TooltipInformationEventListener implements EventListener {
 
 		} else if (extraAttributes) {
 
-			Main.mainController.setTooltipSize(400, 600);
+			Main.mainController.setTooltipSize(400, 608);
 
 			tooltipSB.setLength(0);
 			tooltipSB.append(UtilText.parse(owner,
@@ -804,6 +806,49 @@ public class TooltipInformationEventListener implements EventListener {
 							+Util.clothesToStringList(concealedSlots.get(concealedSlot).stream().filter(clothing -> !concealedSlots.containsKey(clothing.getClothingType().getSlot())).collect(Collectors.toList()), false)
 						+"</b>."
 					+ "</div>"));
+			
+		} else if(loadedEnchantment!=null) {
+			//TODO
+			
+			int yIncrease = 0;
+
+			// Title:
+			tooltipSB.setLength(0);
+			tooltipSB.append("<div class='title'>" + Util.capitaliseSentence(loadedEnchantment.getName()) + "</div>");
+
+			if(loadedEnchantment.isSuitableItemAvailable()) {
+				tooltipSB.append("<div class='subTitle' style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Suitable item in inventory</div>");
+			} else {
+				tooltipSB.append("<div class='subTitle' style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>No suitable item in inventory</div>");
+			}
+			
+			// Attribute modifiers:
+			tooltipSB.append("<div class='subTitle-picture'>");
+			int i=0;
+			for (ItemEffect ie : loadedEnchantment.getEffects()) {
+				for(String s : ie.getEffectsDescription(Main.game.getPlayer(), Main.game.getPlayer())) {
+					tooltipSB.append((i!=0?"</br>":"") + s);
+					yIncrease++;
+					if(UtilText.parse(s).replaceAll("<.*?>", "").length()>32) { // Yes, this is terrible...
+						yIncrease++;
+					}
+				}
+				i++;
+			}
+			if(yIncrease>=5) {
+				yIncrease-=5;
+			} else {
+				yIncrease=0;
+			}
+			tooltipSB.append("</div>");
+
+			// Picture:
+			tooltipSB.append("<div class='picture'>" + loadedEnchantment.getSVGString() + "</div>");
+
+			Main.mainController.setTooltipSize(360, 208 + (yIncrease>0?4:0) + (yIncrease * LINE_HEIGHT));
+			
+			Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
+			
 			
 		} else { // Standard information:
 			if(description==null || description.isEmpty()) {
@@ -997,6 +1042,12 @@ public class TooltipInformationEventListener implements EventListener {
 		return this;
 	}
 
+	public TooltipInformationEventListener setLoadedEnchantment(LoadedEnchantment loadedEnchantment) {
+		resetFields();
+		this.loadedEnchantment = loadedEnchantment;
+
+		return this;
+	}
 	
 	private void resetFields() {
 		extraAttributes = false;
@@ -1017,5 +1068,6 @@ public class TooltipInformationEventListener implements EventListener {
 		tattoo=false;
 		copyInformation=false;
 		concealedSlot=null;
+		loadedEnchantment=null;
 	}
 }

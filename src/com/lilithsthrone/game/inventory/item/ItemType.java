@@ -19,13 +19,16 @@ import com.lilithsthrone.game.dialogue.DialogueFlagValue;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.ItemTag;
 import com.lilithsthrone.game.inventory.Rarity;
+import com.lilithsthrone.game.inventory.enchanting.AbstractItemEffectType;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffectTimer;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.enchanting.TFModifier;
 import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.ListValue;
 import com.lilithsthrone.world.places.PlaceType;
 
 /**
@@ -315,10 +318,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_EQUINE_CIDER))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_EQUINE_CIDER)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -362,10 +365,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_BUBBLE_MILK))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BUBBLE_MILK)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -409,10 +412,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_WOLF_WHISKEY))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_WOLF_WHISKEY)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -455,10 +458,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_FOX_WINE))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_FOX_WINE)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -500,10 +503,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_SWAMP_WATER))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_SWAMP_WATER)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -549,10 +552,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.STR_BLACK_RATS_RUM))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BLACK_RATS_RUM)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -598,10 +601,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.INT_FELINE_FANCY))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.INT_FELINE_FANCY)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -645,11 +648,11 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.INT_VANILLA_WATER))), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.INT_VANILLA_WATER)), 
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -695,10 +698,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.FIT_CANINE_CRUSH))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.FIT_CANINE_CRUSH)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -744,10 +747,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.FIT_SQUIRREL_JAVA))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.FIT_SQUIRREL_JAVA)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -793,10 +796,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.INT_FRUIT_BAT_SQUASH))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.INT_FRUIT_BAT_SQUASH)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.BAT_CAVERNS_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.BAT_CAVERNS_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -841,10 +844,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.FIT_EGG_NOG))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.FIT_EGG_NOG)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.REINDEER_GIFT),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.REINDEER_GIFT,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -890,9 +893,9 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.SEX_HARPY_PERFUME))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.SEX_HARPY_PERFUME)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -936,11 +939,11 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.SEX_SLIME_DRINK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.SEX_SLIME_DRINK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.BAT_CAVERNS_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.BAT_CAVERNS_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -984,10 +987,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.SEX_RABBIT_MORPH_DRINK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.SEX_RABBIT_MORPH_DRINK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN), //TODO
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN, //TODO
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1031,10 +1034,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.SEX_MINCE_PIE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.SEX_MINCE_PIE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.REINDEER_GIFT),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.REINDEER_GIFT,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1081,10 +1084,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.COR_LILITHS_GIFT))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.COR_LILITHS_GIFT)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1129,10 +1132,10 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.COR_IMPISH_BREW))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.COR_IMPISH_BREW)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1175,11 +1178,11 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.MYSTERY_KINK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.MYSTERY_KINK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.MISC_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.MISC_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1270,11 +1273,11 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.ADDICTION_REMOVAL))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.ADDICTION_REMOVAL)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.MISC_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.MISC_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1319,11 +1322,11 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_INNOXIAS_GIFT))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_INNOXIAS_GIFT)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1367,11 +1370,11 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_ANGELS_TEARS))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_ANGELS_TEARS)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1415,10 +1418,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_KITTYS_REWARD))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_KITTYS_REWARD)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1464,10 +1467,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_BUBBLE_CREAM))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_BUBBLE_CREAM)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1515,10 +1518,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_ROUND_NUTS))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_ROUND_NUTS)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1564,10 +1567,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_FRUIT_SALAD))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_FRUIT_SALAD)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.BAT_CAVERNS_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.BAT_CAVERNS_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1611,10 +1614,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_BURGER))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_BURGER)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1660,10 +1663,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_CARROT_CAKE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_CARROT_CAKE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN), //TODO
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN, //TODO
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1707,10 +1710,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_CANINE_CRUNCH))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_CANINE_CRUNCH)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1754,10 +1757,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_SUGAR_CARROT_CUBE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_SUGAR_CARROT_CUBE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1800,10 +1803,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_SUGAR_COOKIE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_SUGAR_COOKIE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.REINDEER_GIFT),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.REINDEER_GIFT,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1849,10 +1852,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_ALLIGATORS_GUMBO))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_ALLIGATORS_GUMBO)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1897,10 +1900,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_MEAT_AND_MARROW))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_MEAT_AND_MARROW)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1946,10 +1949,10 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_CHICKEN_POT_PIE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_CHICKEN_POT_PIE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -1991,9 +1994,9 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_LOLLIPOP))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_LOLLIPOP)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM))) {
+					ItemTag.RACIAL_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2039,10 +2042,10 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.RACE_BIOJUICE))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.RACE_BIOJUICE)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM),
-					new ListValue<>(ItemTag.NOT_FOR_SALE))) {
+					ItemTag.RACIAL_TF_ITEM,
+					ItemTag.NOT_FOR_SALE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2087,7 +2090,7 @@ public class ItemType {
 //			50,
 //			Rarity.LEGENDARY,
 //			null,
-//			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ANGEL)))) {
+//			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ANGEL))) {
 //
 //		@Override
 //		public String getUseName() {
@@ -2214,7 +2217,7 @@ public class ItemType {
 		
 	}
 	
-	public static AbstractItemType BOTTLED_ESSENCE_ARCANE = new AbstractItemType(50,
+	public static AbstractItemType BOTTLED_ESSENCE_ARCANE = new AbstractItemType(40,
 			null,
 			false,
 			"Bottled Arcane Essence",
@@ -2227,8 +2230,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ARCANE))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ARCANE)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2265,8 +2268,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_CAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_CAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2304,8 +2307,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_COW_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_COW_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2342,8 +2345,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_DEMON))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_DEMON)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2380,8 +2383,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_IMP))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_IMP)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2418,8 +2421,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ALLIGATOR_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_ALLIGATOR_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2449,8 +2452,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_SQUIRREL_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_SQUIRREL_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2487,8 +2490,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_RAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_RAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2525,8 +2528,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_RABBIT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_RABBIT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2563,8 +2566,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_BAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_BAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2601,8 +2604,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_DOG_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_DOG_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2639,8 +2642,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HARPY))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HARPY)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2677,8 +2680,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HORSE_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HORSE_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2715,8 +2718,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_REINDEER_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_REINDEER_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2753,8 +2756,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HUMAN))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_HUMAN)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2791,8 +2794,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_WOLF_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_WOLF_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2829,8 +2832,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_FOX_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_FOX_MORPH)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2867,8 +2870,8 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_SLIME))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.ESSENCE))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOTTLED_ESSENCE_SLIME)),
+			Util.newArrayListOfValues(ItemTag.ESSENCE)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -2908,10 +2911,10 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BIMBO_LOLLIPOP))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BIMBO_LOLLIPOP)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM),
-					new ListValue<>(ItemTag.NOT_FOR_SALE))) {
+					ItemTag.RACIAL_TF_ITEM,
+					ItemTag.NOT_FOR_SALE)) {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -2955,10 +2958,10 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.NYMPHO_LOLLIPOP))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.NYMPHO_LOLLIPOP)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM),
-					new ListValue<>(ItemTag.NOT_FOR_SALE))) {
+					ItemTag.RACIAL_TF_ITEM,
+					ItemTag.NOT_FOR_SALE)) {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -3001,10 +3004,10 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.DOMINANT_PERFUME))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.DOMINANT_PERFUME)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.RACIAL_TF_ITEM),
-					new ListValue<>(ItemTag.NOT_FOR_SALE))) {
+					ItemTag.RACIAL_TF_ITEM,
+					ItemTag.NOT_FOR_SALE)) {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -3153,10 +3156,10 @@ public class ItemType {
 			null,
 			Rarity.EPIC,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.DYE_BRUSH))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.DYE_BRUSH)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -3203,9 +3206,9 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.USED_CONDOM_DRINK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.USED_CONDOM_DRINK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.REMOVE_FROM_DEBUG_SPAWNER))) {
+					ItemTag.REMOVE_FROM_DEBUG_SPAWNER)) {
 		
 		private static final long serialVersionUID = 1L;
 
@@ -3299,7 +3302,7 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.ORIENTATION_CHANGE))), null) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.ORIENTATION_CHANGE)), null) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -3358,11 +3361,11 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.VIXENS_VIRILITY))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.VIXENS_VIRILITY)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -3396,11 +3399,11 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.PROMISCUITY_PILL))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.PROMISCUITY_PILL)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.ATTRIBUTE_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -3431,10 +3434,10 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.MOO_MILKER))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.MOO_MILKER)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN)) {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -3493,9 +3496,9 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.FILLED_MOO_MILKER_DRINK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.FILLED_MOO_MILKER_DRINK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.REMOVE_FROM_DEBUG_SPAWNER))) {
+					ItemTag.REMOVE_FROM_DEBUG_SPAWNER)) {
 		
 		private static final long serialVersionUID = 1L;
 
@@ -3527,11 +3530,11 @@ public class ItemType {
 			null,
 			Rarity.COMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.MOTHERS_MILK))),
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.MOTHERS_MILK)),
 			Util.newArrayListOfValues(
-					new ListValue<>(ItemTag.DOMINION_ALLEYWAY_SPAWN),
-					new ListValue<>(ItemTag.SUBMISSION_TUNNEL_SPAWN),
-					new ListValue<>(ItemTag.MISC_TF_ITEM))) {
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.MISC_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -3562,24 +3565,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_CAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_CAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.CAT_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3610,24 +3603,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_COW_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_COW_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.COW_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3658,24 +3641,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_DEMON))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_DEMON)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.DEMON);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3705,24 +3678,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_IMP))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_IMP)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.IMP);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3752,24 +3715,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_DOG_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_DOG_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.DOG_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3799,24 +3752,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_ALLIGATOR_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_ALLIGATOR_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 		
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.ALLIGATOR_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3846,24 +3789,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_HARPY))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_HARPY)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 		
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.HARPY);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3893,24 +3826,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_HORSE_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_HORSE_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 		
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.HORSE_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3940,24 +3863,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_REINDEER_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_REINDEER_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 		
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.REINDEER_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -3987,24 +3900,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_HUMAN))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_HUMAN)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.HUMAN);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4034,24 +3937,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_SQUIRREL_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_SQUIRREL_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.SQUIRREL_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4081,24 +3974,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_RAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_RAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.RAT_MORPH);
-		}
-		
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4128,24 +4011,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_RABBIT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_RABBIT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.RABBIT_MORPH);
-		}
-		
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4175,24 +4048,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_BAT_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_BAT_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.BAT_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4222,24 +4085,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_WOLF_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_WOLF_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.WOLF_MORPH);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4269,8 +4122,8 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_FOX_MORPH))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_FOX_MORPH)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4316,24 +4169,14 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.BOOK_READ_SLIME))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.BOOK))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.BOOK_READ_SLIME)),
+			Util.newArrayListOfValues(ItemTag.BOOK)) {
 
 		private static final long serialVersionUID = 1L;
 
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
-		}
-		
-		@Override
-		public boolean isAbleToBeUsed(GameCharacter target) {
-			return !Main.game.getPlayer().getRacesDiscoveredFromBook().contains(Race.SLIME);
-		}
-
-		@Override
-		public String getUnableToBeUsedDescription(GameCharacter target) {
-			return "You've already added this book to Lilaya's library! It would be best to just sell it...";
 		}
 		
 		@Override
@@ -4363,7 +4206,7 @@ public class ItemType {
 			null,
 			Rarity.RARE,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.PRESENT))), null) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.PRESENT)), null) {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -4408,7 +4251,7 @@ public class ItemType {
 			Rarity.UNCOMMON,
 			null,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.GIFT))) {
+			Util.newArrayListOfValues(ItemTag.GIFT)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4454,7 +4297,7 @@ public class ItemType {
 			Rarity.UNCOMMON,
 			null,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.GIFT))) {
+			Util.newArrayListOfValues(ItemTag.GIFT)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4501,8 +4344,8 @@ public class ItemType {
 			Colour.BASE_YELLOW,
 			Rarity.UNCOMMON,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.GIFT_CHOCOLATES))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.GIFT))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.GIFT_CHOCOLATES)),
+			Util.newArrayListOfValues(ItemTag.GIFT)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4544,8 +4387,8 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.GIFT_PERFUME))),
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.GIFT))) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.GIFT_PERFUME)),
+			Util.newArrayListOfValues(ItemTag.GIFT)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4589,7 +4432,7 @@ public class ItemType {
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(ItemTag.GIFT))) {
+			Util.newArrayListOfValues(ItemTag.GIFT)) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -4637,7 +4480,7 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			Util.newArrayListOfValues(new ListValue<>(new ItemEffect(ItemEffectType.EGGPLANT))), null) {
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.EGGPLANT)), null) {
 
 		private static final long serialVersionUID = 1L;
 
@@ -5049,7 +4892,7 @@ public class ItemType {
 			}
 			
 			List<String> effectsString = Util.newArrayListOfValues(
-					new ListValue<>("[style.boldExcellent(Permanently)] gain the spell '<b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>'."));
+					"[style.boldExcellent(Permanently)] gain the spell '<b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>'.");
 
 			if(s == Spell.ELEMENTAL_EARTH) {
 				effectsString.add("Adds "+Race.ELEMENTAL_EARTH.getName()+" encyclopedia entry.");
@@ -5106,32 +4949,65 @@ public class ItemType {
 						}
 					}
 					
-					return "<p style='text-align:center'>"
-								+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
-							+"</p>"
-							+ "<p>"
-								+ (target.isPlayer()
-									?"As you read through the spell book, you discover that most of the pages are dedicated to helping the reader build up their arcane aura to the point where they'd be able to learn this spell."
+					if(hasSpell) {
+						if(target.isPlayer()) {
+							return "<p style='text-align:center'>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+									+"</p>"
+									+ "<p>"
+										+"Reading through the spell book again, you quickly discover that you've already learned all there is to know about the spell '"+s.getName()+"'."
+										+ " Apart from some well-detailed diagrams of a demon casting this spell, there's nothing within the tome's pages to hold your attention,"
+											+ " and you find yourself closing it after just a couple of minutes, having not learned anything new..."
+									+ "</p>"
+									+raceKnowledgeGained;
+						} else {
+							return "<p style='text-align:center'>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+									+"</p>"
+									+ "<p>"
+										+ UtilText.parse(target,
+												"Reading through the spell book again, [npc.name] quickly discovers that [npc.she]'s already learned all there is to know about the spell '"+s.getName()+"'."
+												+ " Apart from some well-detailed diagrams of a demon casting this spell, there's nothing within the tome's pages to hold [npc.her] attention,"
+													+ " and [npc.she] closes it after just a couple of minutes, having not learned anything new...")
+									+ "</p>";
+						}
+						
+					} else {
+						if(target.isPlayer()) {
+							return "<p style='text-align:center'>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+									+"</p>"
+									+ "<p>"
+										+ "As you read through the spell book, you discover that most of the pages are dedicated to helping the reader build up their arcane aura to the point where they'd be able to learn this spell."
 										+ " Seeing as your aura is already extremely powerful, these passages are of no use to you, and you quickly flick through to the final chapters,"
 											+ " where it's described exactly how to focus your aura into casting the spell '<i>"+s.getName()+"</i>'."
 										+ " It doesn't take you long to get the general idea of what to do, and after completing the book's practice exercises, you feel confident that you'll be able to cast this spell whenever you'd like."
-									:UtilText.parse(target,
-										"As [npc.name] reads through the spell book, [npc.she] discovers that most of the pages are dedicated to helping the reader build up their arcane aura to the point where they'd be able to learn this spell."
-										+ " Seeing as [npc.her] aura is already powerful enough for this, these passages are of no use to [npc.herHim], and [npc.she] quickly flicks through to the final chapters,"
-											+ " where it's described exactly how to focus [npc.her] aura into casting the spell '<i>"+s.getName()+"</i>'."
-										+ " It doesn't take [npc.herHim] long to get the general idea of what to do, and after completing the book's practice exercises,"
-											+ " [npc.she] feels confident that [npc.she]'ll be able to cast this spell whenever [npc.she]'d like."))
-							+ "</p>"
-							+ (hasSpell
-								?"<p style='text-align:center; color:"+Colour.TEXT_GREY.toWebHexString()+";'>"
-									+ (target.isPlayer()
-											?"You already know this spell, so you didn't really learn anything new..."
-											:UtilText.parse(target, "[npc.Name] already knows this spell, so [npc.she] didn't really learn anything new..."))
+									+ "</p>"
+									+ "<p style='text-align:center;'>"
+										+ "You learn the spell <b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>!"
+										+ "</br><i>Having served its purpose, the spell book disappears in a flash of purple light!</i>"
+										+ "</br>[style.italicsExcellent(Spell book added to Lilaya's library!)]"
+									+ "</p>"
+									+raceKnowledgeGained;
+							
+						} else {
+							return "<p style='text-align:center'>"
+									+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+								+"</p>"
+								+ "<p>"
+									+ UtilText.parse(target,
+											"As [npc.name] reads through the spell book, [npc.she] discovers that most of the pages are dedicated to helping the reader build up their arcane aura to the point where they'd be able to learn this spell."
+											+ " Seeing as [npc.her] aura is already powerful enough for this, these passages are of no use to [npc.herHim], and [npc.she] quickly flicks through to the final chapters,"
+												+ " where it's described exactly how to focus [npc.her] aura into casting the spell '<i>"+s.getName()+"</i>'."
+											+ " It doesn't take [npc.herHim] long to get the general idea of what to do, and after completing the book's practice exercises,"
+												+ " [npc.she] feels confident that [npc.she]'ll be able to cast this spell whenever [npc.she]'d like.")
 								+ "</p>"
-								:"<p style='text-align:center;'>"
-									+ (target.isPlayer()?"You learn":UtilText.parse(target, "[npc.Name] learns"))+" the spell <b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>!"
-								+ "</p>")
-							+raceKnowledgeGained;
+								+ "<p style='text-align:center;'>"
+									+ UtilText.parse(target, "[npc.Name] learns the spell <b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>!")
+									+ "</br><i>Having served its purpose, the spell book disappears in a flash of purple light!</i>"
+								+ "</p>";
+						}
+					}
 				}
 			};
 			
@@ -5200,8 +5076,8 @@ public class ItemType {
 					null,
 					Rarity.LEGENDARY,
 					null,
-					Util.newArrayListOfValues(new ListValue<>(new ItemEffect(effectType))),
-					Util.newArrayListOfValues(new ListValue<>(ItemTag.SPELL_BOOK))) {
+					Util.newArrayListOfValues(new ItemEffect(effectType)),
+					Util.newArrayListOfValues(ItemTag.SPELL_BOOK)) {
 		
 				private static final long serialVersionUID = 1L;
 				
@@ -5213,10 +5089,10 @@ public class ItemType {
 							+ "</div>";
 				}
 				
-				@Override
-				public boolean isConsumedOnUse() {
-					return false;
-				}
+//				@Override
+//				public boolean isConsumedOnUse() {
+//					return false;
+//				}
 				
 				@Override
 				public boolean isAbleToBeUsed(GameCharacter target) {
@@ -5266,7 +5142,7 @@ public class ItemType {
 		for(SpellSchool school : SpellSchool.values()) {
 			
 			AbstractItemEffectType effectType = new AbstractItemEffectType(Util.newArrayListOfValues(
-							new ListValue<>("[style.boldExcellent(+1)] to <span style='color:"+school.getColour().toWebHexString()+";'>"+school.getName()+"</span> upgrade points.")),
+							"[style.boldExcellent(+1)] to <span style='color:"+school.getColour().toWebHexString()+";'>"+school.getName()+"</span> upgrade points."),
 							school.getColour()) {
 						
 						@Override
@@ -5293,8 +5169,8 @@ public class ItemType {
 					null,
 					Rarity.EPIC,
 					null,
-					Util.newArrayListOfValues(new ListValue<>(new ItemEffect(effectType))),
-					Util.newArrayListOfValues(new ListValue<>(ItemTag.SPELL_SCROLL))) {
+					Util.newArrayListOfValues(new ItemEffect(effectType)),
+					Util.newArrayListOfValues(ItemTag.SPELL_SCROLL)) {
 		
 				private static final long serialVersionUID = 1L;
 				

@@ -8,15 +8,35 @@ import com.lilithsthrone.game.combat.Attack;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.ListValue;
 
 /**
  * @since 0.1.0
- * @version 0.1.87
+ * @version 0.2.5
  * @author Innoxia
  */
 public enum Race {
 
+	NONE("none",
+			"none",
+			"none",
+			"none",
+			"none",
+			"none",
+			"",
+			"",
+			Colour.RACE_HUMAN,
+			Disposition.CIVILIZED,
+			StatusEffect.PURE_HUMAN,
+			Util.newArrayListOfValues(Attack.MAIN),
+			true,
+			0.5f,
+			1,
+			1,
+			Attribute.DAMAGE_HUMAN,
+			Attribute.RESISTANCE_HUMAN,
+			FurryPreference.NORMAL,
+			FurryPreference.NORMAL),
+	
 	// HUMAN:
 	HUMAN("human",
 			"humans",
@@ -34,7 +54,7 @@ public enum Race {
 			Colour.RACE_HUMAN,
 			Disposition.CIVILIZED,
 			StatusEffect.PURE_HUMAN,
-			Util.newArrayListOfValues(new ListValue<Attack>(Attack.MAIN)),
+			Util.newArrayListOfValues(Attack.MAIN),
 			true,
 			0.5f,
 			1,
@@ -60,8 +80,8 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.PURE_HUMAN,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SPELL),
 			false,
 			0.25f,
 			1,
@@ -87,9 +107,9 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.DEMON,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK),
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.SPECIAL_ATTACK,
+					Attack.SEDUCTION,
+					Attack.SPELL),
 			false,
 			0.75f,
 			2,
@@ -114,8 +134,8 @@ public enum Race {
 			Disposition.UNPREDICTABLE,
 			StatusEffect.IMP,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SEDUCTION)),
+					Attack.MAIN,
+					Attack.SEDUCTION),
 			true,
 			0.75f,
 			2,
@@ -141,8 +161,8 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.COW_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -167,7 +187,7 @@ public enum Race {
 			Colour.RACE_DOG_MORPH,
 			Disposition.CIVILIZED,
 			StatusEffect.DOG_MORPH,
-			Util.newArrayListOfValues(new ListValue<Attack>(Attack.MAIN)),
+			Util.newArrayListOfValues(Attack.MAIN),
 			true,
 			0.5f,
 			1,
@@ -192,8 +212,8 @@ public enum Race {
 			Disposition.SAVAGE,
 			StatusEffect.WOLF_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -218,9 +238,9 @@ public enum Race {
 			Disposition.UNPREDICTABLE,
 			StatusEffect.FOX_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SEDUCTION,
+					Attack.SPELL),
 			true,
 			0.5f,
 			1,
@@ -246,8 +266,8 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.CAT_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.SEDUCTION,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -273,8 +293,8 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.HORSE_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -300,8 +320,8 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.REINDEER_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -327,7 +347,7 @@ public enum Race {
 			Disposition.CIVILIZED,
 			StatusEffect.SQUIRREL_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN)),
+					Attack.MAIN),
 			true,
 			0.5f,
 			1,
@@ -352,8 +372,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.RAT_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -378,8 +398,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.RABBIT_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.SEDUCTION,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			2,
@@ -404,8 +424,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.BAT_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -430,8 +450,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ALLIGATOR_MORPH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.MAIN,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			1,
@@ -456,7 +476,7 @@ public enum Race {
 			Colour.RACE_SLIME,
 			Disposition.NEUTRAL,
 			StatusEffect.SLIME,
-			Util.newArrayListOfValues(new ListValue<Attack>(Attack.SEDUCTION)),
+			Util.newArrayListOfValues(Attack.SEDUCTION),
 			true,
 			0.5f,
 			1,
@@ -482,8 +502,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.HARPY,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPECIAL_ATTACK)),
+					Attack.SEDUCTION,
+					Attack.SPECIAL_ATTACK),
 			true,
 			0.5f,
 			3,
@@ -510,8 +530,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ELEMENTAL_EARTH,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SPELL),
 			false,
 			0.5f,
 			1,
@@ -536,8 +556,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ELEMENTAL_WATER,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SPELL),
 			false,
 			0.5f,
 			1,
@@ -562,8 +582,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ELEMENTAL_AIR,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SPELL),
 			false,
 			0.5f,
 			1,
@@ -588,9 +608,9 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ELEMENTAL_FIRE,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.MAIN),
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.MAIN,
+					Attack.SEDUCTION,
+					Attack.SPELL),
 			false,
 			0.5f,
 			1,
@@ -615,8 +635,8 @@ public enum Race {
 			Disposition.NEUTRAL,
 			StatusEffect.ELEMENTAL_ARCANE,
 			Util.newArrayListOfValues(
-					new ListValue<Attack>(Attack.SEDUCTION),
-					new ListValue<Attack>(Attack.SPELL)),
+					Attack.SEDUCTION,
+					Attack.SPELL),
 			false,
 			0.5f,
 			1,

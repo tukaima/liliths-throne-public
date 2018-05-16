@@ -3,15 +3,12 @@
 		Patch notes in Main
 		Update README
 		Create .exe version
-	
-	!!! 32 bit exe !!!
+		32 bit exe
 	
 	
 	Goals:
 	
 	- Add in a mod template for items, clothing, weapons, and sex actions.
-	
-	- Improve the slavery UI, and add more jobs & interactions (winner of Patreon content poll).
 	
 	- Adding in the next stage of the main quest (earning an audience with Lyssieth).
 	
@@ -26,67 +23,345 @@
 	Patch notes:
 	
 	Gameplay:
-		Vicky now sells spell books and scrolls. This is temporary until the spell shop is added. (She deliberately doesn't sell spell books for Cleanse, Steal, Soothing Water, Teleport, and Lilith's Command, as these are all planned to be quest-related. If you want to try them out, use the debug menu.)
-		Finished adding effects for all 8 of the Arcane spells.
-		Random attackers now spawn with random items in their inventory.
-		Added variable point costs for spell upgrades.
-		Added mechanics for spell school unique abilities. (Dye without needing dye-brushes for Earth, fluid enchantments free for Water, Energy & aura regeneration doubled for Air, deal 2 extra fire damage in melee for Fire, know time until next storm for Arcane.)
-		Added support for clicking on the phone's map to teleport (if you have the 'Teleport' spell).
-		Added a little passage in the prologue where Lilaya gives you the spell book for 'Ice Shard'. (You will find this spell book in your room when you load into this version.)
-		Added in crystals and feathers granting you spells/attribute boosts again.
-		Added elemental encyclopedia lore entries (unlocked when reading the elemental spell book).
-		Removed Witch's Seal and Witch's Charm spell books. (These were accidentally added in 0.2.3.9.)
-		
-	Balancing:
-		Buffed Witch's Seal to last for 3 turns, and increased costs of Witch's Charm and Witch's Seal to 40 and 80, respectively.
-		Random succubi attackers in the dark alley tiles now spawn knowing the spells 'Arcane Arousal' and 'Telepathic Communication'.
-		Increased spell book and spell scroll values.
+		Added a small encounter for Mother's Day on Dominion's boulevard tiles. There's a 10% chance for it to fire, and it requires the game's date to be the second week of May. (I thought that the second Sunday of May was too narrow a time period.)
 	
-	Clothing:
-		<b>Added:</b> Hoop earrings (feminine, ear-piercing slot). Candi and Brandi now wear hoop earrings.
-		Dresses no longer block the leg slot.
+	Contributors:
+		Fixed body-part modifiers being incorrectly loaded in from old save files. (Pimvgd)
+		Increased parser performance. (Pimvgd) Innoxia's note: This massively increased rendering performance in all screens for me (most notably in the inventory screen).
+		Refactored code to remove unnecessary ListValue objects. (Pimvgd)
+		Fixed penis size alteration buttons incorrectly showing 'cm' when disabled. (Pimvgd)
+		Added hasWeaponEquipped method to handle possible future issues with enchanting weapons. (Pimvgd)
+		Fixed softlock caused by opening options menu during examining alexandria in intro. (Pimvgd)
+	
+	UI:
+		Improved inventory UI to stop that annoying stuttering/resizing caused by the scrollbar appearing and disappearing.
 	
 	Other:
-		Added support for recolouring sclera (the white part of the eye).
-		Added lots of tongue colours and patterns.
-		Added 'Reset spells' to debug options.
-		Renamed 'Seduction' damage/resistance to 'Lust' damage/resistance.
-		Offensive spells can now only be cast on enemies.
+		All 'Submit' actions in the game are no longer completely locked out by not having the Submissive fetish, and instead have an associated corruption bypass cost.
+		Having a special flavour for milk, cum, or girlcum now increases its value.
+		Vicky now stocks 12 TF potions every day, instead of 6.
+		Slightly improved item ordering in inventory.
+		Added secondary colour to 'sport shorts', for the string tie. Replaced Lumi's shorts with sport shorts.
+		NPCs can now dress themselves once per hour instead of once per day.
+		Most demons and imps should now spawn in having already lost their penile virginity.
+		Added 'deflowering' fetish experience gain from taking virginities.
+		Added description of the rooms in Angel's Kiss having small bathrooms.
+		You can now drink fluids in the milking room if the total quantity is less than 100ml.
+		Enchanting effects are no longer cleared if there's another item of the same type in your inventory. (So if you want to craft lots of potions, you can now keep on clicking 'Craft', without needing to reload the effects every time.)
 	
 	Bugs:
-		Fixed inventory scaling bug that was present in Java 10 and more recent versions of Java 8.
-		Fixed potion name generation.
-		Fixed numerous minor bugs related to elementals (incorrect status effects, summoning costs, descriptions).
-		Fixed some items of clothing (such as the overbust corset) concealing their own inventory slot.
-		Fixed clients in Angel's Kiss not being attracted to you.
-		Fixed bug where safety goggles would get equipped onto you during the prologue.
-		Fixed bug where female characters could start the game having already lost their penile virginity.
-		Fixed humans being referred to such things as 'a masculine man male', or 'a feminine woman female'.
-		Fixed being able to upgrade spells even if upgrade points were 0.
-		Fixed incorrect NPC eye colour transformation descriptions.
-		Fixed elementals in your party being available at the stocks.
-		Fixed companions instantly regeneration 100% of energy and aura after fights.
-		
-		
-		
-		
+		Fixed several body covering colours not being saved or loaded correctly. (Some body colours might be reset as part of this fix, but they should now correctly save from now on.)
+		Fixed cause of a game import error (related to SlaveryUtil).
+		Fixed cause of possible game crash when clicking on weapons in inventory.
+		Fixed bug where milking room was milking cum instead of girlcum.
+		Milk regeneration enchantments are now correctly affected by the Water School perk (i.e. it's free).
+		Fixed a malfunction in the milking machines, where, even if they were powerful enough to do it, they wouldn't extract any stored milk from a slave's breasts past their milk regeneration rate. (e.g. If a slave had 500ml of milk in their breasts, and they regenerated 100ml an hour, and the machine was capable of milking 250ml an hour, the machine would only be milking 100ml an hour, instead of 250/250/200/100/etc.)
+		Fixed Vicky's potions having strange names.
+		Fixed Vicky's inventory resetting every time you loaded the game.
+		Fixed attackers in arcane storms using prostitute dialogue.
+		Fixed TF menu penis size showing 'cm' instead of 'inches'.
+		Pressing enter in the enchanting screen's rename box will no longer make the screen go blank.
+		Fixed another(!!!!!) cause of the NPC-stuck-on-screen bug.
+		Fixed companions being treated as librarians when entering Lilaya's library.
+		Fixed custom names for clothing not persisting between saves.
+		Fixed elusive bug where slave rooms would sometimes randomly reset their upgrades.
+		Fixed debug menu being available in the prologue (as it would end up breaking everything if used).
+		Typo fixes.
+		Fixed bug where equipped condoms couldn't be clicked on.
+		Spell actions should no longer be duplicated in combat. (Caused by unlocking a spell and also having a weapon that grants that spell.)
+		Fixed bug where a random NPC's inventory would be shown on the bottom-right during masturbation scenes. (I think this was also causing a bug where masturbation scenes could break and show no actions.)
+		Fixed Pix losing affection towards you at the end of her sex scene.
+		Fixed enchantment save/load confirmations not working properly.
+		Fixed bug where characters without genitalia would get stuck in Lilaya's panty masturbation scene at 100 lust.
+		Fixed horn TF options appearing twice in the transformation options for slimes.
+		Fixed offhand attacks applying the damage type of your main weapon.
+		Fixed bug where only one of a slaves' milk/cum/girlcum would be milked.
+		Fixed sex AI bug where NPCs with oral fetishes would stop/start oral actions.
+		Fixed modded clothing colours not being able to use custom colour lists.
+		Fixed bugs in Arthur's and Amber's descriptions.
+		Fluids will no longer show in the milking room if there's 0ml of them.
+		Fixed bug where the 'pet' in Amber's walkies fucking scene would sometimes generate with fetishes that would cause the scene to never progress.
+		Fixed bug where characters couldn't be imported as slaves if they had been exported with companions in their party.
+		Fixed bug where trying to delete an exported character with confirmations on would send you to the save/load screen.
 	
-	LILAYA PANTIES
-		Masturbation support
-		Add eavesdrop to Lilaya/Rose lab intro
-			- Rose domming Lilaya
-		Lilaya room
-			- Search
-				Find panties
-					- Masturbate
-					- Take panties
-					
-	Then slavery stuff
-		- Permission & outfit templates
-		- Head girl/boy
-		- Bed slaves
-		- Milking work (change it so milk & cum is stored in vats, which can be sold/drunk)
 	
+	
+	
+	
+	
+	
+	Lilaya fuck scene
+	
+	Anyone have trouble with the game freezing up if you get jumped in your house by a slave while under the "Risk of pregnancy" status effect
+	
+	USE 8 0170
+	
+	rfpnj PR
+	
+	Fen forms and TFGS update pictures and hotfix
+	
+	
+	
+	after growing more than 1 tail I lost the option to tail peg
+	
+	handjobs and breastfeeding as ongoing
+	hand as orifice
+	
+	
+	it seems like the part of the description where it says how many times you've had sex with someone counts the number of times they've had sex in a brothel while working for you as a slave
+	
+	gag reflex as throat stretching
+	
+	elemental clothing
+	
+	
+	
+	
+	Delay/ pause the addiction withdrawl count down timer while an NPC still has one of the ongoing cumflation status effects. 
+		i.e. while they're still trying to prosses the massive load in their system they should probably be treated as having a fresh dose at least untill they run out of cum
+	
+	Ball-related actions with strap-ons
+	Cum text strap-ons
+	
+	combat loss no sex if noncon off
+	
+	sex doesn't end when you offer your body to attackers until you orgasm
+	
+	Remove the affection changes at the start of sex now that affection gets modified at the end of sex based on our performance durring the act.
+	
+	adding a way to save presets for transformation
+	doesn't look like its been reported but I've ran into a bug involving condoms and having sex with 2 partners. If one partner is fucking your pussy and is wearing a condom when he cums, he can't get you pregnant, but somehow the other person who isn't fucking your pussy and hadn't came yet, can impregnate you.
+
+	Exporting while you have an elemental summoned, or likely having any companion causes the character not being able to be imported into the auction house.
+	
+	I can't panty fap again after getting pegged by Rose
+		No actions appear, and rose's inventory is on teh right
+	
+	ongoing hotdogging broken
+	
+	Edit the forum post on Fenoxo due to how it isn't a random generated map anymore and stuff
+	
+	
+	As a slime, Succubi's Secrets eye-coloring still has a couple of... issues.
+	- the colors presented are the same as you'd get if you weren't a slime (i.e. you could make your eyes non-transparent)
+	- changing the iris color takes the money but doesn't apply the change
+	Additionally:
+	- changing eye color in the Transform menu after the first time doesn't seem to affect what is printed in the selfie
+	- going to the Covering menu in Succubi's Secret for the first time seems to set your various slime colors to a specific one (it was green when I did it moments ago)
+	All-in-all, the color changes for Slimes seem to be a bit of a mess at the moment.
+	
+	
+
+	Don't forget about the bug where lilaya always recognizes you are a futa even when you are 8inchhes or below
+		Also don’t forget about the sheath cock issue
+		Perhaps the solution there would be that if a cock is sheathed it allows you to have a cock up to 16 before you are recognized
+		Where people will recognize you as female but say they always knew you were futa if your cock size is above 8 inches
+		
+		
+	Special encounters for:
+			
+		Rat-morphs & Alligator-morphs
+			Just want to mug you
+			
+		Slimes
+			If TF fetish: They feed you biojuice canister
+			Else: They mug you
+			
+		Imps
+			Two or three at once
+			
+		Bat-morphs
+			Finish bat descriptions and racial effects
+			Most just want to talk
+			
+	Imp fortresses
+	Gambling Den
+	Bat caverns.
+		
+	Add slime TF quest.
+		Enforcer post quest - pick up when enter submission.
+		Slime TF encounters mention a slime queen.
+		They mention the slime lake as the only possible place where a queen could be.
+		
+		Go to slime lake and either defeat slime guards to take boat, or fly to island
+		The house is a staircase down into a brightly-lit underground palace
+		Slimes
+		Slime queen is "manufacturing" the bio-canisters to transform everyone into slimes (it's her milk/girlcum)
+			Can either submit and help her (she TF's you into slime through absorption)
+				Slime population increases
+			Or fight her
+				Destroy slime equipment
+				
+	If slime, then gain Lilaya's anti-slime TF quest
+		She asks for 10 angel's tears and 100 bottled essences
+		Takes 3 days to make solidification elixir
+				
+
+
+
+
+	
+	- Add job: bedroom slave to act as alarm clock with blowjobs and sex. 
+	- Slave overseer job
+	- Actual movement around home for if house permission selected
+	
+	- Permission & outfit templates
+	- I'll try and add in a setting for their behaviour this version (set them to act friendly or cold)
+	DIALOGUE:
+		- free slaves
+		- Adding content for interacting with them in their place of work.
+		- Adding content for all of the current settings (such as forbidding them to talk, and letting them leave the house).
+	
+	
+	Harpy offspring in nests
+	Offspring dialogue improvements
+	
+	when non-con is off, tone down fight loss
+	
+	Party members fucked with you
+		Need to add sex action mod framework so can add all npc-on-npc variations
+		When lose combat, if NPC is attracted to your companion, they fuck them too.
+		If win combat, can get companion to join in or watch
+	
+	
+	
+	"She has a natural bush of brown, smooth scale around her pussy."
+	
+	add a displayValues method to the race enum
+		stats shows human dmg/resistance twice
+		
+	When my slave is put in stocks, any time she gets used is attributed to me
+		So it says I've had sex with her 53 times, when I haven't even done her once
+		
+	"After all, without a permit, you're unable to buy anything"
+		Even with permit
+		
+	NPCs need a knows player parts, and then that needs to reflect in reveal text
+	
+	Are strap-ons supposed to count towards penile virginity
+	
+	Add tag for starting clothing
+	
+	panty scene stop masturbation sometimes not working?
+	
+	Disable autosave in prologue
+	
+	elemental should love you
+		Also I don't know if you intended for the Elementals to be 'druggable' or not, but the base attribute changes do not persist if player change the element. And Elemental with 0 corruption (possible by drugging the Elemental) will regain ~90 corruption on load,  so I have to keep it at 1 corruption.
+	
+	check: throat wetness resets if a save is loaded in 2.4.
+	
+	 slime offspring show up as human, instead of slimes.  The scenario is that my character gave birth to the offspring, with the father being the slime that has been transformed into an angel-slime-girl.  The codex shows the offspring as a female angel-slime-girl, but meeting her in the world had her show up as a woman.  The other offspring of my character are imps, mainly.  I'm not sure if it's an issue with a transformed slime alone, or just all slimes.
+	
+	retain enchantment effects when crafting in order to craft lots
+	
+	modded clothing: custom color list do not works for primary and secondary colors
+	
+	jockstrap
+	
+	Perhaps instead of ice shard as the first spell that Lilly gives to the MC it should be one of the elemental summoning spells. It would be a good way get new players introduced to party combat from the very begining. Besides if we also start the game with a demon stone then we already have a direct attack spell at our disposal so having ice shard is a bit redundant
+	 
+	 So I tried adding a major plasticity drain enchantment and the result was that absolutely none of my enchantments worked anymore, including the one I applied on the new clothing. I've tested this on multiple itmes and it produced the same result
+	 
+	pattern and secondary color options for penises
+	
+	Am I supposed to be able to drag Nyan straight back into her room for more sex
+	
+	personality changes debug menu
+	
+	still saying "a very feminine female human"
+	
+	Should you be able to fondle balls when the other character has a strap-on
+	A-And you cane take off Rose's strapon
+		W-Which doesn't stop penetrations
+	And some slaves are stuck on the stats sheet as being ready for birthing
+		I think that they were both PCs I imported
+	
+	NPCs using condoms on self/player
+	
+	Add masturbation to most areas
+	
+	broken condom content
+		
+	adding a hide/show button for status effects
+		
+	Fix NPCs not being deleted
+	
+	Elemental TF menu
+	
+	Also, would there be a way to make a piece of clothing that makes you grow a penis when equipped and have the penis disappear when unequipped with the modding system?
+	
+	SexAction modding
+		Sticking your tail into a partners mouth and vice versa. We currently have a self tail suck action but no way to make someone else suck us. Similarly being able to put your fingers in an NPCs mouth could be hot
+	
+	add hand orifice and move masturbation over to using that
+	
+	
+	Sailor uniform
+	Butler set
+	
+	 the bug where when you look at a new npc often you see the info and inventory of the one you looked at most recently instead
+	 could have just fought someone in the alley, but when I go and talk to one of my slaves it treats them like they're that person in the alley. I just want to be clear this isn't so much the character thing with their bodily description, but the one with their combat stats
+	
+	
+	slaves all lost their collars
+		they were all jinxed
+		
+	stats page negative values display not working
+		
+		
+	 cooldown timer for social actions like Small Talk are reset if, after doing these actions, you exit the shop, then save and reload the game
+		
+	 cant be certain, but I'm pretty sure a slave with both dominant and submissive (regardless of how high their sadism is, and without it being low) who takes advantage of you seems to be stuck in the gentle pace. I'm doing some tests right now with mine to be certain
+		all my slaves are now sadists 100% and some still are submissive while others aren't, will update as i see what happens
+		i am certain now, a slave who has a submissive fetish will only use gentle pace regardless of other fetishes
+		
+	link the race description to use the "pronoun young" value from the pronoun options menu
+		
+	spell passives unlocked when at least 4 spells known
+		
+	the elemental should include a list of whatever skills it starts with on the basic skill.  Right now all you can see in the menu is their upgraded skills
+	
+	0.2.4 defaults to a window height of over 768, 768 is still common on laptops and should thus be lower
+	
+	information on the fetish tooltips on
+		1) what you have to do in order to get xp in the particular fetish
+		2) what leveling up that particular fetish actually does
+	
+	"Fetish Endowment of (name of fetish)" even when removing
+	
+	use the same interface as the teleport spell for flight
+		
+	not sure if you might have changed it, but the transformer, and clothes enchanting halving perks don't seem to work unless they now already half the cost when it shows how much the enchant you want to add cost, also the free fluid enchants for having a water skill does not work for sure shows it is free, but then increases the cost when you add the enchant for both potions and clothes.
+		
+	test buttplug mod
+	
+	if have an elemental summoned when exporting, cannot import new game
+	
+	elementals can summon elementals
+		POssibly causing: somehow summoned elementals are able to be outside of the party and remain on tiles
+		
+	When an enemies lust reaches 100 from an ally's seduction, combat does not end. Combat ends if you do your own seduction attack.
+		Edit: This seems to only happen if you use the "Wait" command, or some other command that does not do any sort of damage to the opponent. An attack that leaves an opponent with HP remaining will still cause combat to end normally if your ally causes their lust to hi 100
+		
+	All the eye coloring options at Succubi's Secrets apply to (and show the current color of) irises (at least as a slime).
+		
+	your can talk to your Elemental in the Library in the same way that you would talk to a slave, also milking room
+		also lets you send your elemental to Kate's, which is funny
+		
+	Slime TF menu wing options gives: None, bat-like, bat-like, Angelic
+		
+	unjinxed one of my slave's collar and there's just a huge drop in obediance/day
+	
+	Refunding the element spell upgrades does not refund the correct amount of element points
+	
+	 it's still charging arcane esscence for fluid enchantments the price is listed as 0 on the add effect button but the total cost to enchant the item still goes up as if you were being charged the full price when you click it.
+	
+	Ralph buy your spellbooks but not Vicky
+	
+	if you have a stack of moo milker and hit "milk all", all the bottle will get filled even if there isn't enough milk available
+	
+	The encyclopedis breaks due to Poison vapors spellbook being two lines
 	
 	spell books descriptions
 	
@@ -96,6 +371,7 @@
 	cannot teach people spells
 	1 - A library or book shelf to hold all the books.
 	2 - assign slaves to learn spells from the library or book shelf - 1 at the end of each day.
+	They learn arcane from it
 
 	Need to assign slaves jobs for different times of the day
 	click on job button, then click the times to set jobs - colour coded
@@ -103,7 +379,7 @@
 	lust damage from spells needs to apply correct energy/aura damage
 	DoTs from spells need to use getModifiedDamage()
 		
-		
+	over torso scientists lab coat isn't concealing the torso slot
 		
 	the leg lover and strutter fetishes say that they unlock those corresponding teases but when in battle those teases just arent there
 	
@@ -210,8 +486,6 @@
 	when having the cum stud fetish if no request always cum inside, if request to pullout and is free willed, ~50% chance of either one, and in incriments of somewhere around ten when the slave becomes more agreeable
 	
 	When giving Ralph some head, it seems that the mouth status is displayed backwards. ("Ralph is sucking your dick!" rather than you're sucking his
-	
-	tube top
 	
 	Brax affection changes
 	
@@ -422,8 +696,6 @@ It'd be even better if this could be extended to potions as well, allowing us to
 	
 	Minor gripe, but could the store/inventory screens get a placeholder scrollbar? I don't like the tiny shift in size/position that the two inventories get when you move from item with a short description to an item with a sufficiently long one (or vice versa).
 	
-	Sailor uniform
-	
 	
 	
 	
@@ -524,14 +796,6 @@ It'd be even better if this could be extended to potions as well, allowing us to
 	While creating your character, if you choose a certain piercing but then change your mind, they will show up in your inventory when selecting your clothes
 	
 	change horn colour (succubus) at some 
-	
-	
-	- Improve the slavery UI, and add more jobs & interactions (winner of Patreon content poll).
-		- Adding content for interacting with them in their place of work.
-		- Adding content for all of the current settings (such as forbidding them to talk, and letting them leave the house).
-		- I'll try and add in a setting for their behaviour this version (set them to act friendly or cold)
-		- Add job: bedroom slave to act as alarm clock with blowjobs and sexual intercourse. 
-		- Finish milking job.
 	
 			
 	: hi, did anyone notice "Forced TF Gender Tendency" not working at all?

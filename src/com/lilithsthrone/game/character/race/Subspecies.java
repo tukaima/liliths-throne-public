@@ -482,7 +482,7 @@ public enum Subspecies {
 			Colour.RACE_DEMON,
 			SubspeciesPreference.TWO_AVERAGE,
 			"A bipedal fennec-morph who possesses demonic essence.",
-			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
@@ -838,8 +838,8 @@ public enum Subspecies {
 			SubspeciesPreference.FOUR_ABUNDANT,
 			"A slime that's taken on the form of a fennec-morph.",
 			Util.newArrayListOfValues(
-					new ListValue<>(WorldType.SUBMISSION),
-					new ListValue<>(WorldType.BAT_CAVERNS))) {
+					WorldType.SUBMISSION,
+					WorldType.BAT_CAVERNS)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
 //			body = CharacterUtils.generateBody(body.getGender(), Subspecies.FOX_MORPH, RaceStage.PARTIAL);

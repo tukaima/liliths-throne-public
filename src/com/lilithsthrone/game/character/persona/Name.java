@@ -335,9 +335,6 @@ public enum Name {
 			case HORSE_MORPH:
 				name = Name.EQUINE;
 				break;
-//			case FOX_DEMON:
-//				name = getWeebName();
-//				break;
 		}
 		
 		return name.getNameTriplets().get(Util.random.nextInt(name.getNameTriplets().size()));
@@ -372,56 +369,56 @@ public enum Name {
 		return PROSTITUTE.getNameTriplets().get(Util.random.nextInt(PROSTITUTE.getNameTriplets().size()));
 	}
 	
-//	private static NameTriplet getWeebName() {
-//		//This generates a Japanese-sounding name by combining up to five mora.
-//		//Most of the names that this spits out won't be real Japanese, but nobody will know.
-//		//First three mora are random syllables (first one includes A/I/U/E/O, the others don't).
-//		//Name ending is chosen from a gender-specific bank which gives either one or two mora.
-//		//No gender bank is used for androgynous names.
-//		String[] firstMora = new String[] {
-//				"A",	"I",	"U",	"E",	"O",
-//				"Ka",	"Ki",	"Ku",	"Ke",	"Ko",
-//				"Ga",	"Gi",	"Gu",	"Ge",	"Go",
-//				"Sa",	"Shi",	"Su",	"Se",	"So",
-//				"Sha",			"Shu",			"Sho",
-//				"Za",	"Ji",	"Zu",	"Ze",	"Zo",
-//				"Ja",			"Ju",			"Jo",
-//				"Ta",	"Chi",	"Tsu",	"Te",	"To",
-//				"Da",	"Du",	"Dzu",	"De",	"Do",
-//				"Na",	"Ni",	"Nu",	"Ne",	"No",
-//				"Ha",	"Hi",	"Fu",	"He",	"Ho",
-//				"Ba",	"Bi",	"Bu",	"Be",	"Bo",
-//				"Ma",	"Mi",	"Mu",	"Me",	"Mo",
-//				"Ya",			"Yu",			"Yo",
-//				"Ra",	"Ri",	"Ru",	"Re",	"Ro"
-//		};
-//		String[] middleMora = new String[] {
-//				"ka",	"ki",	"ku",	"ke",	"ko",
-//				"ga",	"gi",	"gu",	"ge",	"go",
-//				"sa",	"shi",	"su",	"Se",	"So",
-//				"sha",			"shu",			"sho",
-//				"za",	"ji",	"zu",	"ze",	"zo",
-//				"ja",			"ju",			"jo",
-//				"ta",	"chi",	"tsu",	"te",	"to",
-//				"da",	"du",	"dzu",	"de",	"do",
-//				"na",	"ni",	"nu",	"ne",	"no",
-//				"ha",	"hi",	"fu",	"he",	"ho",
-//				"ba",	"bi",	"bu",	"be",	"bo",
-//				"ma",	"mi",	"mu",	"me",	"mo",
-//				"ya",			"yu",			"yo",
-//				"ra",	"ri",	"ru",	"re",	"ro",
-//				"n"
-//		};
-//		
-//		String[] finalFem = new String[] {"ko", "mi", "ri", "n", "ka"};
-//		String[] finalMas = new String[] {"ta", "tarou", "hiko", "o", "suke"};
-//		
-//		String baseName = firstMora[Util.random.nextInt(firstMora.length)]
-//				+ middleMora[Util.random.nextInt(middleMora.length)]
-//				+ (Math.random() < 0.35f ? middleMora[Util.random.nextInt(middleMora.length)] : "");
-//		
-//		return new NameTriplet(baseName + (Math.random() < 0.40f ? finalMas[Util.random.nextInt(finalMas.length)] : ""), baseName, baseName + (Math.random() < 0.40f ? finalFem[Util.random.nextInt(finalFem.length)] : ""));
-//	}
+	public static NameTriplet getWeebName() {
+		//This generates a Japanese-sounding name by combining up to five mora.
+		//Most of the names that this spits out won't be real Japanese, but nobody will know.
+		//First three mora are random syllables (first one includes A/I/U/E/O, the others don't).
+		//Name ending is chosen from a gender-specific bank which gives either one or two mora.
+		//No gender bank is used for androgynous names.
+		String[] firstMora = new String[] {
+				"A",	"I",	"U",	"E",	"O",
+				"Ka",	"Ki",	"Ku",	"Ke",	"Ko",
+				"Ga",	"Gi",	"Gu",	"Ge",	"Go",
+				"Sa",	"Shi",	"Su",	"Se",	"So",
+				"Sha",			"Shu",			"Sho",
+				"Za",	"Ji",	"Zu",	"Ze",	"Zo",
+				"Ja",			"Ju",			"Jo",
+				"Ta",	"Chi",	"Tsu",	"Te",	"To",
+				"Da",	"Du",	"Dzu",	"De",	"Do",
+				"Na",	"Ni",	"Nu",	"Ne",	"No",
+				"Ha",	"Hi",	"Fu",	"He",	"Ho",
+				"Ba",	"Bi",	"Bu",	"Be",	"Bo",
+				"Ma",	"Mi",	"Mu",	"Me",	"Mo",
+				"Ya",			"Yu",			"Yo",
+				"Ra",	"Ri",	"Ru",	"Re",	"Ro"
+		};
+		String[] middleMora = new String[] {
+				"ka",	"ki",	"ku",	"ke",	"ko",
+				"ga",	"gi",	"gu",	"ge",	"go",
+				"sa",	"shi",	"su",	"Se",	"So",
+				"sha",			"shu",			"sho",
+				"za",	"ji",	"zu",	"ze",	"zo",
+				"ja",			"ju",			"jo",
+				"ta",	"chi",	"tsu",	"te",	"to",
+				"da",	"du",	"dzu",	"de",	"do",
+				"na",	"ni",	"nu",	"ne",	"no",
+				"ha",	"hi",	"fu",	"he",	"ho",
+				"ba",	"bi",	"bu",	"be",	"bo",
+				"ma",	"mi",	"mu",	"me",	"mo",
+				"ya",			"yu",			"yo",
+				"ra",	"ri",	"ru",	"re",	"ro",
+				"n"
+		};
+		
+		String[] finalFem = new String[] {"ko", "mi", "ri", "n", "ka"};
+		String[] finalMas = new String[] {"ta", "tarou", "hiko", "o", "suke"};
+		
+		String baseName = firstMora[Util.random.nextInt(firstMora.length)]
+				+ middleMora[Util.random.nextInt(middleMora.length)]
+				+ (Math.random() < 0.35f ? middleMora[Util.random.nextInt(middleMora.length)] : "");
+		
+		return new NameTriplet(baseName + (Math.random() < 0.40f ? finalMas[Util.random.nextInt(finalMas.length)] : ""), baseName, baseName + (Math.random() < 0.40f ? finalFem[Util.random.nextInt(finalFem.length)] : ""));
+	}
 
 	public List<NameTriplet> getNameTriplets() {
 		return names;

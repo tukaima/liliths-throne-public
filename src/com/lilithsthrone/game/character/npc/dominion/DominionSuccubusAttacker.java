@@ -17,9 +17,10 @@ import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.gender.GenderPreference;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.Name;
-import com.lilithsthrone.game.character.race.Race;
+import com.lilithsthrone.game.character.race.FurryPreference;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.RacialBody;
+import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.DialogueNodeOld;
@@ -69,7 +70,61 @@ public class DominionSuccubusAttacker extends NPC {
 			addFetish(Fetish.FETISH_DOMINANT);
 			CharacterUtils.addFetishes(this);
 			
-			if(!GenderPreference.getGenderFromUserPreferences().isFeminine()) {
+			Subspecies species = Subspecies.DEMON;
+			double speciesRand = Math.random();
+			Gender gender = GenderPreference.getGenderFromUserPreferences();
+			
+			if(speciesRand<0.1f) {
+				if(gender.isFeminine()) {
+					if(Main.getProperties().subspeciesFeminineFurryPreferencesMap.get(Subspecies.FOX_DEMON) != FurryPreference.HUMAN) {
+						species = Subspecies.FOX_DEMON;
+					}
+				} else {
+					if(Main.getProperties().subspeciesFeminineFurryPreferencesMap.get(Subspecies.FOX_DEMON) != FurryPreference.HUMAN) {
+						species = Subspecies.FOX_DEMON;
+					}
+				}
+			}
+			
+			if(gender.isFeminine()) {
+				switch(Main.getProperties().subspeciesFeminineFurryPreferencesMap.get(species)) {
+					case HUMAN:
+						setBody(gender, RacialBody.DEMON, RaceStage.GREATER);
+						break;
+					case MINIMUM:
+						setBodyFromPreferences(1, gender, species);
+						break;
+					case REDUCED:
+						setBodyFromPreferences(2, gender, species);
+						break;
+					case NORMAL:
+						setBodyFromPreferences(3, gender, species);
+						break;
+					case MAXIMUM:
+						setBody(gender, species, RaceStage.GREATER);
+						break;
+				}
+			} else {
+				switch(Main.getProperties().subspeciesMasculineFurryPreferencesMap.get(species)) {
+					case HUMAN:
+						setBody(gender, RacialBody.DEMON, RaceStage.GREATER);
+						break;
+					case MINIMUM:
+						setBodyFromPreferences(1, gender, species);
+						break;
+					case REDUCED:
+						setBodyFromPreferences(2, gender, species);
+						break;
+					case NORMAL:
+						setBodyFromPreferences(3, gender, species);
+						break;
+					case MAXIMUM:
+						setBody(gender, species, RaceStage.GREATER);
+						break;
+				}
+			}
+			
+			if(!gender.isFeminine()) {
 				this.setBody(Gender.M_P_MALE, RacialBody.DEMON, RaceStage.GREATER);
 				this.setGenderIdentity(Gender.M_P_MALE);
 			}
@@ -84,7 +139,15 @@ public class DominionSuccubusAttacker extends NPC {
 			
 			setLevel(Util.random.nextInt(3) + 4);
 			
-			setName(Name.getRandomTriplet(Race.DEMON));
+			switch (species){
+				case FOX_DEMON:
+					setName(Name.getWeebName());
+					break;
+				default:
+					setName(Name.getRandomTriplet(species.getRace()));
+					break;
+			}
+			
 			this.setPlayerKnowsName(false);
 			
 			// Set random inventory & weapons:
@@ -107,6 +170,21 @@ public class DominionSuccubusAttacker extends NPC {
 		}
 
 		this.setEnslavementDialogue(DominionSuccubusDialogue.ENSLAVEMENT_DIALOGUE);
+	}
+	
+	private void setBodyFromPreferences(int i, Gender gender, Subspecies species) {
+		int choice = Util.random.nextInt(i)+1;
+		RaceStage raceStage = RaceStage.PARTIAL;
+		
+		if (choice == 1) {
+			raceStage = RaceStage.PARTIAL;
+		} else if (choice == 2) {
+			raceStage = RaceStage.LESSER;
+		} else {
+			raceStage = RaceStage.GREATER;
+		}
+		
+		setBody(gender, species, raceStage);
 	}
 	
 	@Override

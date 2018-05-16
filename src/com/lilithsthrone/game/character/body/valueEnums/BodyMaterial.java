@@ -34,6 +34,34 @@ public enum BodyMaterial {
 			false,
 			true),
 	
+	// this is just a temporary way to get the youko subspecies recognized.
+	// demons are also temporarily being assigned this bodymaterial so that they can become a youko if given fox parts.
+	// short of creating a new variable to track demonic status, this is the simplest way to do it without creating new parts.
+	
+	FLESH_DEMONIC("flesh",
+			"skin", "fleshy",
+			"skin", "fleshy",
+			"flesh", "fleshy",
+			"flesh", "fleshy",
+			"hair", "hairy",
+			"hair", "hairy",
+			"hair", "hairy",
+			"fur", "furry",
+			"fur", "furry",
+			"feathers", "feathered",
+			"feathers", "feathered",
+			"scales", "scaled",
+			"scales", "scaled",
+			"shell", "shelled",
+			"shell", "shelled",
+			"nails", "hard",
+			"keratin", "keratinous",
+			Colour.BASE_PINK_LIGHT,
+			DamageType.PHYSICAL,
+			true,
+			false,
+			true),
+	
 	SLIME("slime", Colour.RACE_SLIME, DamageType.PHYSICAL, false, true, false),
 
 	// Fire elementals:

@@ -107,6 +107,7 @@ public class DominionAlleywayAttacker extends NPC {
 					case BAT_MORPH:
 					case DEMON:
 					case FOX_DEMON:
+					case FOX_DEMON_FENNEC:
 					case HARPY:
 					case HARPY_RAVEN:
 					case HUMAN:
@@ -142,6 +143,7 @@ public class DominionAlleywayAttacker extends NPC {
 					case SLIME_RAT:
 					case SLIME_WOLF:
 					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_RABBIT:
 						addToSubspeciesMap(canalSpecies?2:0, gender, s, availableRaces);
 						break;

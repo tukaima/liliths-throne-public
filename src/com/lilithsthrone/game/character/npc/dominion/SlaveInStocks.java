@@ -94,6 +94,7 @@ public class SlaveInStocks extends NPC {
 					case ANGEL:
 					case DEMON:
 					case FOX_DEMON:
+					case FOX_DEMON_FENNEC:
 					case HARPY:
 					case HARPY_RAVEN:
 					case HUMAN:
@@ -116,6 +117,7 @@ public class SlaveInStocks extends NPC {
 					case SLIME_SQUIRREL:
 					case SLIME_WOLF:
 					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_RAT:
 					case SLIME_BAT:
 					case SLIME_RABBIT:

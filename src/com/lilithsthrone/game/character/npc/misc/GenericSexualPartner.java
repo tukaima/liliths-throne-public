@@ -82,6 +82,7 @@ public class GenericSexualPartner extends NPC {
 					case ANGEL:
 					case DEMON:
 					case FOX_DEMON:
+					case FOX_DEMON_FENNEC:
 					case IMP:
 					case IMP_ALPHA:
 					case ELEMENTAL_AIR:
@@ -114,6 +115,7 @@ public class GenericSexualPartner extends NPC {
 					case SLIME_RAT:
 					case SLIME_WOLF:
 					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_RABBIT:
 						addToSubspeciesMap(1, gender, s, availableRaces);
 						break;

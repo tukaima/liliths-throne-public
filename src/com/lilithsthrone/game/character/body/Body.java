@@ -1442,6 +1442,7 @@ public class Body implements Serializable, XMLSaving {
 		
 		switch(this.getBodyMaterial()) {
 			case FLESH:
+			case FLESH_DEMONIC:
 				break;
 			case SLIME:
 				if (owner.isPlayer()) {
@@ -3561,6 +3562,7 @@ public class Body implements Serializable, XMLSaving {
 				this.raceStage = RaceStage.GREATER;
 				break;
 			case FLESH:
+			case FLESH_DEMONIC:
 				race = getRaceFromPartWeighting();
 				
 				if(raceWeightMap.size()==1) {

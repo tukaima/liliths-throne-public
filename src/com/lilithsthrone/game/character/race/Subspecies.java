@@ -109,7 +109,7 @@ public enum Subspecies {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			// TODO Auto-generated method stub
-			
+			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 	},
 	
@@ -127,7 +127,7 @@ public enum Subspecies {
 			Util.newArrayListOfValues(new ListValue<>(WorldType.SUBMISSION))) {
 		@Override
 		public void applySpeciesChanges(Body body) {
-			// TODO Auto-generated method stub
+			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 		@Override
 		public boolean isShortStature() {
@@ -153,6 +153,7 @@ public enum Subspecies {
 		}
 		@Override
 		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 			body.setHeight(Height.NEGATIVE_ONE_TINY.getMedianValue());
 		}
 		@Override
@@ -309,7 +310,7 @@ public enum Subspecies {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			//We use this to get semi-sane natural coloration patterns.
-			Colour c1 = body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPrimaryColour();
+			Colour c1 = body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour();
 			Colour c2 = Colour.COVERING_WHITE;
 			CoveringPattern pat = CoveringPattern.MARKED;
 			double rand = Math.random();
@@ -411,8 +412,93 @@ public enum Subspecies {
 			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
 		@Override
 		public void applySpeciesChanges(Body body) {
-			// TODO Auto-generated method stub
+			//We use this to get semi-sane natural coloration patterns.
+			Colour c1 = body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour();
+			Colour c2 = Colour.COVERING_WHITE;
+			CoveringPattern pat = CoveringPattern.MARKED;
+			double rand = Math.random();
 			
+			switch (c1) {
+				case COVERING_BROWN:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BROWN;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_TAN;
+					}
+					break;
+				case COVERING_BROWN_DARK:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BROWN_DARK;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_BROWN;
+					}
+					break;
+				case COVERING_BLONDE:
+				case COVERING_GINGER:
+					if(rand<0.025f) {
+						c2 = Colour.COVERING_BLACK;
+					} else if(rand<0.05f) {
+						c2 = Colour.COVERING_BROWN;
+					} else if(rand<0.5f) {
+						c2 = Colour.COVERING_GREY;
+					}
+					break;
+				case COVERING_SILVER:
+				case COVERING_GREY:
+					if(rand<0.5f) {
+						c2 = c1;
+						pat = CoveringPattern.NONE;
+					}
+					break;
+				case COVERING_BLACK:
+					if(rand<0.5f) {
+						c2 = Colour.COVERING_BLACK;
+						pat = CoveringPattern.NONE;
+					} else {
+						c2 = Colour.COVERING_GREY;
+					}
+					break;
+				case COVERING_TAN:
+				case COVERING_WHITE:
+				default:
+					c2 = c1;
+					pat = CoveringPattern.NONE;
+					break;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, pat, c1, false, c2, false));
+			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
+		}
+	},
+	
+	FOX_DEMON_FENNEC("statusEffects/raceFoxMorph",
+			"fennec-youko",
+			"fennec-youkos",
+			"fennec-youko-boy",
+			"fennec-youko-girl",
+			"fennec-youko-boys",
+			"fennec-youko-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_DEMON,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A bipedal fennec-morph who possesses demonic essence.",
+			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
+			double rand = Math.random();
+			if(rand<0.5f) {
+				fennecColour = Colour.COVERING_DIRTY_BLONDE;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HUMAN, new Covering(BodyCoveringType.HUMAN, CoveringPattern.NONE, Colour.SKIN_OLIVE, false, Colour.SKIN_OLIVE, false));
+			body.updateCoverings(true, true, true, true);
+			if(body.getEar().getType()==EarType.FOX_MORPH) {
+				body.getEar().setType(null, EarType.FOX_MORPH_BIG);
+			}
+			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 	},
 	
@@ -732,6 +818,26 @@ public enum Subspecies {
 			Colour.RACE_SLIME,
 			SubspeciesPreference.FOUR_ABUNDANT,
 			"A slime that's taken on the form of a fox-morph.",
+			Util.newArrayListOfValues(
+					new ListValue<>(WorldType.SUBMISSION),
+					new ListValue<>(WorldType.BAT_CAVERNS))) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+//			body = CharacterUtils.generateBody(body.getGender(), Subspecies.FOX_MORPH, RaceStage.PARTIAL);
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	SLIME_FOX_FENNEC("statusEffects/raceSlime",
+			"fennec-slime",
+			"fennec-slimes",
+			"fennec-slime-boy",
+			"fennec-slime-girl",
+			"fennec-slime-boys",
+			"fennec-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a fennec-morph.",
 			Util.newArrayListOfValues(
 					new ListValue<>(WorldType.SUBMISSION),
 					new ListValue<>(WorldType.BAT_CAVERNS))) {
@@ -1359,6 +1465,7 @@ public enum Subspecies {
 				return Subspecies.ELEMENTAL_ARCANE;
 			case SLIME:
 			case FLESH:
+			case FLESH_DEMONIC:
 				break;
 		}
 		
@@ -1440,14 +1547,14 @@ public enum Subspecies {
 					subspecies = Subspecies.WOLF_MORPH;
 					break;
 				case FOX_MORPH:
-					subspecies = Subspecies.FOX_MORPH;
+					subspecies = (body.getBodyMaterial()==BodyMaterial.FLESH_DEMONIC) ? Subspecies.FOX_DEMON : Subspecies.FOX_MORPH;
 					
 					if((body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_DIRTY_BLONDE
 							|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_BLEACH_BLONDE)
 							&& (body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_DIRTY_BLONDE
 									|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_BLEACH_BLONDE)
 							&& body.getCoverings().get(BodyCoveringType.FOX_FUR).getPattern() == CoveringPattern.NONE) {
-							subspecies = Subspecies.FOX_MORPH_FENNEC;
+						subspecies = (body.getBodyMaterial()==BodyMaterial.FLESH_DEMONIC) ? Subspecies.FOX_DEMON_FENNEC : Subspecies.FOX_MORPH_FENNEC;
 						}
 					break;
 				case SLIME:

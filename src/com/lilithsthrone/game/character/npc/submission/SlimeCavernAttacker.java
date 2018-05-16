@@ -91,8 +91,8 @@ public class SlimeCavernAttacker extends NPC {
 					case WOLF_MORPH:
 					case FOX_MORPH:
 					case FOX_MORPH_FENNEC:	
-					case FOX_DEMON:
-					case FOX_DEMON_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case RABBIT_MORPH:
 					case RABBIT_MORPH_LOP:
 					case BAT_MORPH:

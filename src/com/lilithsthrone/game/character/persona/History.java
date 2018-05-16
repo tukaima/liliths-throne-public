@@ -61,6 +61,8 @@ Calm:
 
 	REINDEER_OVERSEER(false, true, null, "overseer", "-"),
 	
+	FOX_ASCENDANT_PRANKSTER(false, true, null, "prankster", "-"),
+	
 	// Partner histories:
 
 	UNEMPLOYED(true, true, Perk.JOB_UNEMPLOYED, "unemployed", "You've been out of work for a little while now."),

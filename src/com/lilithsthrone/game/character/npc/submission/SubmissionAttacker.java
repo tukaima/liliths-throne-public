@@ -94,8 +94,8 @@ public class SubmissionAttacker extends NPC {
 					case CAT_MORPH:
 					case COW_MORPH:
 					case DEMON:
-					case FOX_DEMON:
-					case FOX_DEMON_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case DOG_MORPH:
 					case DOG_MORPH_DOBERMANN:
 					case DOG_MORPH_BORDER_COLLIE:

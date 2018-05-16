@@ -1354,8 +1354,8 @@ public class OptionsDialogue {
 					case DOG_MORPH_BORDER_COLLIE:
 					case FOX_MORPH:
 					case FOX_MORPH_FENNEC:
-					case FOX_DEMON:
-					case FOX_DEMON_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case BAT_MORPH:
 					case RAT_MORPH:
 					case RABBIT_MORPH:

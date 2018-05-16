@@ -81,8 +81,8 @@ public class GenericSexualPartner extends NPC {
 					// No spawn chance:
 					case ANGEL:
 					case DEMON:
-					case FOX_DEMON:
-					case FOX_DEMON_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case IMP:
 					case IMP_ALPHA:
 					case ELEMENTAL_AIR:

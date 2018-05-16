@@ -15,6 +15,7 @@ import com.lilithsthrone.game.character.gender.GenderPreference;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.dominion.Cultist;
 import com.lilithsthrone.game.character.npc.dominion.DominionAlleywayAttacker;
+import com.lilithsthrone.game.character.npc.dominion.DominionAlleywayIllusionist;
 import com.lilithsthrone.game.character.npc.dominion.DominionSuccubusAttacker;
 import com.lilithsthrone.game.character.npc.dominion.HarpyNestsAttacker;
 import com.lilithsthrone.game.character.npc.dominion.Lumi;
@@ -263,7 +264,11 @@ public enum Encounter {
 				return Main.game.getActiveNPC().getEncounterDialogue();
 			}
 			
-			Main.game.setActiveNPC(new DominionSuccubusAttacker());
+			if(Math.random() > 1f) {
+				Main.game.setActiveNPC(new DominionSuccubusAttacker());
+			} else {
+				Main.game.setActiveNPC(new DominionAlleywayIllusionist());
+			}
 
 			try {
 				Main.game.addNPC(Main.game.getActiveNPC(), false);

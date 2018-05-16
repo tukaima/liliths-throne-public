@@ -3106,7 +3106,6 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 					}
 					break;
 				case FLESH:
-				case FLESH_DEMONIC:
 				case SLIME:
 					break;
 				case RUBBER:
@@ -14724,7 +14723,6 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 				}
 				return body.getCoverings().get(BodyCoveringType.FIRE);
 			case FLESH:
-			case FLESH_DEMONIC:
 				break;
 			case ICE:
 				if(bodyCoveringType==BodyCoveringType.HAIR_DEMON) {

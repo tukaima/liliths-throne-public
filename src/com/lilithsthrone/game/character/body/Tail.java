@@ -398,7 +398,7 @@ public class Tail implements BodyPartInterface, Serializable {
 							);
 				}
 				break;
-			case FOX_MORPH:
+			case FOX_MORPH: case FOX_MORPH_MAGIC:
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1

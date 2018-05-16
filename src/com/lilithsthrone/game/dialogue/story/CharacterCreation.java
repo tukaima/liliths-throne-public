@@ -1500,6 +1500,11 @@ public class CharacterCreation {
 			
 			UtilText.nodeContentSB.append("<p>");
 			switch(Main.game.getPlayer().getHistory()) {
+				case PROSTITUTE:
+				case REINDEER_OVERSEER:
+				case FOX_ASCENDANT_PRANKSTER:
+					// NPC histories. If you're a reindeer or fox at this stage, something's gone terribly wrong.
+					break;
 				case ATHLETE:
 					UtilText.nodeContentSB.append(
 							"[pc.speech(I'm a professional athlete,)]"
@@ -1538,12 +1543,6 @@ public class CharacterCreation {
 							"[pc.speech(I work in one of the corporate offices in the centre of the city,)]"
 							+ " you explain,"
 							+ " [pc.speech(mostly doing admin and paper work.)]");
-					break;
-				case PROSTITUTE:
-					// "I'm a whore! Want to know my rates? :D"
-					break;
-				case REINDEER_OVERSEER:
-					// "Well, if you hadn't already noticed, I'm actually an anthropomorphic reindeer, and I come down from the snowy mountains to shovel snow in the city every winter. :D"
 					break;
 				case SOLDIER:
 					UtilText.nodeContentSB.append(

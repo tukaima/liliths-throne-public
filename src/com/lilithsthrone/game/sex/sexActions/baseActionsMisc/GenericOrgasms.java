@@ -1518,7 +1518,6 @@ public class GenericOrgasms {
 					break;
 				case FIRE:
 				case FLESH:
-				case FLESH_DEMONIC:
 				case ICE:
 				case RUBBER:
 				case STONE:

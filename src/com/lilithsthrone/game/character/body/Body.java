@@ -1388,7 +1388,6 @@ public class Body implements Serializable, XMLSaving {
 		
 		switch(this.getBodyMaterial()) {
 			case FLESH:
-			case FLESH_DEMONIC:
 				break;
 			case SLIME:
 				if (owner.isPlayer()) {
@@ -3276,6 +3275,13 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("a furry, [npc.tailColour(true)] fox-like tail.");
 						}
 						break;
+					case FOX_MORPH_MAGIC:
+						if (owner.isPlayer()) {
+							sb.append("a furry, [pc.tailColour(true)] fox-like tail, surrounded by a halo of arcane fire.");
+						} else {
+							sb.append("a furry, [npc.tailColour(true)] fox-like tail, surrounded by a halo of arcane fire.");
+						}
+						break;
 					case SQUIRREL_MORPH:
 						if (owner.isPlayer()) {
 							sb.append("a fluffy, [pc.tailColour(true)] squirrel-like tail, which you can control well enough to grant you significantly improved balance.");
@@ -3396,6 +3402,13 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("furry, [npc.tailColour(true)] fox-like tails.");
 						}
 						break;
+					case FOX_MORPH_MAGIC:
+						if (owner.isPlayer()) {
+							sb.append("furry, [pc.tailColour(true)] fox-like tails, surrounded by a halo of arcane fire.");
+						} else {
+							sb.append("furry, [npc.tailColour(true)] fox-like tails, surrounded by a halo of arcane fire.");
+						}
+						break;
 					case SQUIRREL_MORPH:
 						if (owner.isPlayer()) {
 							sb.append("fluffy, [pc.tailColour(true)] squirrel-like tails, which you can control well enough to grant you significantly improved balance.");
@@ -3508,7 +3521,6 @@ public class Body implements Serializable, XMLSaving {
 				this.raceStage = RaceStage.GREATER;
 				break;
 			case FLESH:
-			case FLESH_DEMONIC:
 				race = getRaceFromPartWeighting();
 				
 				if(raceWeightMap.size()==1) {

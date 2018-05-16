@@ -108,7 +108,6 @@ public enum Subspecies {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			// TODO Auto-generated method stub
-			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 	},
 	
@@ -126,7 +125,7 @@ public enum Subspecies {
 			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
-			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
+			// TODO Auto-generated method stub
 		}
 		@Override
 		public boolean isShortStature() {
@@ -152,7 +151,6 @@ public enum Subspecies {
 		}
 		@Override
 		public void applySpeciesChanges(Body body) {
-			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 			body.setHeight(Height.NEGATIVE_ONE_TINY.getMedianValue());
 		}
 		@Override
@@ -397,7 +395,7 @@ public enum Subspecies {
 		}
 	},
 	
-	FOX_DEMON("statusEffects/raceFoxMorph",
+	FOX_ASCENDANT("statusEffects/raceFoxMorph",
 			"youko",
 			"youkos",
 			"youko-boy",
@@ -407,10 +405,12 @@ public enum Subspecies {
 			Race.FOX_MORPH,
 			Colour.RACE_DEMON,
 			SubspeciesPreference.FOUR_ABUNDANT,
-			"A bipedal fox-morph who possesses demonic essence.",
+			"A bipedal fox-morph empowered by a Lilin.",
 			Util.newArrayListOfValues(WorldType.DOMINION)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
+			body.getTail().setType(null, TailType.FOX_MORPH_MAGIC);
+			
 			//We use this to get semi-sane natural coloration patterns.
 			Colour c1 = body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour();
 			Colour c2 = Colour.COVERING_WHITE;
@@ -467,11 +467,10 @@ public enum Subspecies {
 					break;
 			}
 			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, pat, c1, false, c2, false));
-			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 	},
 	
-	FOX_DEMON_FENNEC("statusEffects/raceFoxMorph",
+	FOX_ASCENDANT_FENNEC("statusEffects/raceFoxMorph",
 			"fennec-youko",
 			"fennec-youkos",
 			"fennec-youko-boy",
@@ -481,10 +480,12 @@ public enum Subspecies {
 			Race.FOX_MORPH,
 			Colour.RACE_DEMON,
 			SubspeciesPreference.TWO_AVERAGE,
-			"A bipedal fennec-morph who possesses demonic essence.",
-			Util.newArrayListOfValues(new ListValue<>(WorldType.DOMINION))) {
+			"A bipedal fennec-morph empowered by a Lilin.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
+			body.getTail().setType(null, TailType.FOX_MORPH_MAGIC);
+			
 			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
 			double rand = Math.random();
 			if(rand<0.5f) {
@@ -497,7 +498,6 @@ public enum Subspecies {
 			if(body.getEar().getType()==EarType.FOX_MORPH) {
 				body.getEar().setType(null, EarType.FOX_MORPH_BIG);
 			}
-			body.setBodyMaterial(BodyMaterial.FLESH_DEMONIC);
 		}
 	},
 	
@@ -838,8 +838,8 @@ public enum Subspecies {
 			SubspeciesPreference.FOUR_ABUNDANT,
 			"A slime that's taken on the form of a fennec-morph.",
 			Util.newArrayListOfValues(
-					new ListValue<>(WorldType.SUBMISSION),
-					new ListValue<>(WorldType.BAT_CAVERNS))) {
+					WorldType.SUBMISSION,
+					WorldType.BAT_CAVERNS)) {
 		@Override
 		public void applySpeciesChanges(Body body) {
 //			body = CharacterUtils.generateBody(body.getGender(), Subspecies.FOX_MORPH, RaceStage.PARTIAL);
@@ -1453,10 +1453,10 @@ public enum Subspecies {
 		}
 		return Subspecies.HUMAN;
 	}
-	
+		
 	public static Subspecies getSubspeciesFromBody(Body body, Race race) {
 		Subspecies subspecies = null;
-		
+				
 		switch(body.getBodyMaterial()) {
 			case FIRE:
 				return Subspecies.ELEMENTAL_FIRE;
@@ -1472,7 +1472,6 @@ public enum Subspecies {
 				return Subspecies.ELEMENTAL_ARCANE;
 			case SLIME:
 			case FLESH:
-			case FLESH_DEMONIC:
 				break;
 		}
 		
@@ -1555,16 +1554,18 @@ public enum Subspecies {
 				case WOLF_MORPH:
 					subspecies = Subspecies.WOLF_MORPH;
 					break;
-				case FOX_MORPH:
-					subspecies = (body.getBodyMaterial()==BodyMaterial.FLESH_DEMONIC) ? Subspecies.FOX_DEMON : Subspecies.FOX_MORPH;
-					
+				case FOX_MORPH:					
 					if((body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_DIRTY_BLONDE
 							|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour()==Colour.COVERING_BLEACH_BLONDE)
 							&& (body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_DIRTY_BLONDE
 									|| body.getCoverings().get(BodyCoveringType.FOX_FUR).getSecondaryColour()==Colour.COVERING_BLEACH_BLONDE)
 							&& body.getCoverings().get(BodyCoveringType.FOX_FUR).getPattern() == CoveringPattern.NONE) {
-						subspecies = (body.getBodyMaterial()==BodyMaterial.FLESH_DEMONIC) ? Subspecies.FOX_DEMON_FENNEC : Subspecies.FOX_MORPH_FENNEC;
+						subspecies = Subspecies.FOX_MORPH_FENNEC;
 						}
+					
+					if (body.getTail().getType() == TailType.FOX_MORPH_MAGIC){
+						subspecies = (subspecies == Subspecies.FOX_MORPH_FENNEC) ? Subspecies.FOX_ASCENDANT_FENNEC : Subspecies.FOX_ASCENDANT;
+					}
 					break;
 				case SLIME:
 					subspecies = Subspecies.SLIME;

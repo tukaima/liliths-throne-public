@@ -30,6 +30,7 @@ import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.dominion.ReindeerOverseer;
 import com.lilithsthrone.game.character.npc.misc.Elemental;
+import com.lilithsthrone.game.character.persona.History;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.character.race.Race;
@@ -1878,7 +1879,7 @@ public enum StatusEffect {
 		}
 	},
 	
-	FOX_DEMON(1000,
+	FOX_ASCENDANT(1000,
 			"youko",
 			null,
 			Colour.RACE_DEMON,
@@ -1895,18 +1896,21 @@ public enum StatusEffect {
 		@Override
 		public String getDescription(GameCharacter target) {
 			if (target.isPlayer())
-				return "You're a fox-morph, but your essence carries a distinctly demonic taint.";
+				return "You're a fox-morph, empowered by gaining a particular Lilin's favor.";
 			else
 				return UtilText.parse(target, target.getName("The")
-						+ " is a fox-morph, but [npc.his] essence carries a distinctly demonic taint.");
+						+ " is a fox-morph, empowered by gaining a particular Lilin's favor");
 		}
 
 		@Override
 		public boolean isConditionsMet(GameCharacter target) {
-//			return target.getRace() == Race.FOX_MORPH
-//					&& !target.isRaceConcealed()
-//					&& target.getRaceStage() == RaceStage.GREATER;
-			return false;
+			if (target.isPlayer())
+				return false; //Replace this as soon as the relevant quests are added.
+			else
+				return target.getRace() == Race.FOX_MORPH
+					&& !target.isRaceConcealed()
+					&& target.getRaceStage() == RaceStage.GREATER
+					&& target.getHistory() == History.FOX_ASCENDANT_PRANKSTER;
 		}
 
 		@Override

@@ -652,6 +652,7 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
@@ -1182,6 +1183,7 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.MISC_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
@@ -1277,6 +1279,7 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.MISC_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
@@ -1304,6 +1307,50 @@ public class ItemType {
 					"[npc.Name] pulls out a bottle of 'Angel's Nectar', and, after quickly pulling out the crystal stopper, [npc.she] promptly downs the entire bottle.",
 					"[npc.Name] pulls out a bottle of 'Angel's Nectar', and, after quickly pulling out the crystal stopper,"
 							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the tasteless liquid that's contained within.");
+		}
+	};
+	
+	public static AbstractItemType MUSHROOM = new AbstractItemType(500,
+			"a cluster of",
+			true,
+			"Glowing Mushroom",
+			"Glowing Mushrooms",
+			"Bioluminescent mushrooms such as these are commonly found growing in the Bat Caverns."
+					+ " The slimes which call those caverns their home are particularly fond of consuming these mushrooms, which is what causes their bodies to glow.",
+			"mushrooms",
+			Colour.BASE_BLUE_LIGHT,
+			null,
+			null,
+			Rarity.EPIC,
+			null,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.MUSHROOMS)),
+			Util.newArrayListOfValues(
+					ItemTag.BAT_CAVERNS_SPAWN)) {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public boolean isAbleToBeUsedInSex() {
+			return true;
+		}
+
+		@Override
+		public boolean isAbleToBeUsedInCombat() {
+			return true;
+		}
+
+		@Override
+		public String getUseName() {
+			return "eat";
+		}
+
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return getGenericUseDescription(user, target,
+					"You pop the small cluster of glowing mushrooms into your mouth, and as you chew and swallow them down, you discover that they have a refreshing, minty taste.",
+					"You pop the small cluster of glowing mushrooms into [npc.name]'s mouth, before making sure that [npc.she] chews and swallows them down.",
+					"[npc.Name] pops a small cluster of glowing mushrooms into [npc.her] mouth, before chewing and swallowing them down.",
+					"[npc.Name] pops a small cluster of glowing mushrooms into your mouth, and as [npc.she] makes you chew and swallow them down, you discover that they have a refreshing, minty taste.");
 		}
 	};
 	
@@ -2029,7 +2076,7 @@ public class ItemType {
 		}
 	};
 	
-	public static AbstractItemType RACE_INGREDIENT_SLIME = new AbstractItemType(5000,
+	public static AbstractItemType RACE_INGREDIENT_SLIME = new AbstractItemType(2500,
 			"a",
 			false,
 			"Biojuice Canister",
@@ -2048,6 +2095,16 @@ public class ItemType {
 					ItemTag.NOT_FOR_SALE)) {
 
 		private static final long serialVersionUID = 1L;
+
+		@Override
+		public AbstractItemEffectType getEnchantmentEffect() {
+			return ItemEffectType.RACE_SLIME;
+		}
+
+		@Override
+		public AbstractItemType getEnchantmentItemType(List<ItemEffect> effects) {
+			return ELIXIR;
+		}
 
 		@Override
 		public boolean isAbleToBeUsed(GameCharacter target) {
@@ -3365,6 +3422,7 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
@@ -3403,6 +3461,7 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM)) {
 
 		private static final long serialVersionUID = 1L;
@@ -3437,7 +3496,8 @@ public class ItemType {
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.MOO_MILKER)),
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
-					ItemTag.SUBMISSION_TUNNEL_SPAWN)) {
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.BAT_CAVERNS_SPAWN)) {
 
 		private static final long serialVersionUID = 1L;
 		
